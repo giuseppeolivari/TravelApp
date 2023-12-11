@@ -11,35 +11,91 @@ struct NewTravel: View {
     
     @State  var startDate = Date()
     @State  var endDate = Date()
+    @State  var calendar1 = false
+    @State  var calendar2 = false
     
     
     var body: some View {
-        VStack {
-                    
-            /*
-            .sheet(isPresented: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Is Presented@*/.constant(false)/*@END_MENU_TOKEN@*/) {
-                Group{
-                    //Text("data iniziale")
-                    DatePicker("From", selection: $startDate, displayedComponents: .date)
-                        //.datePickerStyle(WheelDatePickerStyle())
-                        .padding()
-                    
-                    //Text("finale")
-                    DatePicker("To", selection: $endDate, displayedComponents: .date)
-                    //.datePickerStyle(GraphicalDatePickerStyle())
-                        .padding()
-                    
-                    Text("Giorni trascorsi: \(calculateDaysBetweenDates())")
-                        .padding()
-                    
-                }
+        ZStack{
+            
+            if calendar1{
+                calendarFromView()
             }
-            */
-
+            
+            
+            if calendar2{
+                calendarUntilView()
+            }
+        
+        
+        VStack {
+            HStack{
+                
+                
+                Button(action: {calendar1.toggle()}, label: {
+                    ZStack{
+                        Rectangle()
+                            .foregroundColor(.clear)
+                            .frame(width: 145, height: 95)
+                            .background(Color.gray)
+                            .cornerRadius(20)
+                        VStack{
+                            Text("From")
+                                .fontWeight(.semibold)
+                            
+                            
+                            Image(systemName: "calendar").font(
+                                Font.custom("SF Pro", size: 45)
+                                
+                            )
+                            .multilineTextAlignment(.center)
+                            .foregroundColor(.black)
+                            .frame(alignment: .center)
+                        }
+                    }
+                })
+                
+                
+                Image(systemName: "arrow.forward").font(
+                    Font.custom("SF Pro", size: 45)
+                    
+                )
+                .multilineTextAlignment(.center)
+                .foregroundColor(.black)
+                .frame(alignment: .center)
+                
+                
+                Button(action: {calendar1.toggle()}, label: {
+                    ZStack{
+                        Rectangle()
+                            .foregroundColor(.clear)
+                            .frame(width: 145, height: 95)
+                            .background(Color.gray)
+                            .cornerRadius(20)
+                        VStack{
+                            Text("Until")
+                                .fontWeight(.semibold)
+                            
+                            
+                            Image(systemName: "calendar").font(
+                                Font.custom("SF Pro", size: 45)
+                                
+                            )
+                            .multilineTextAlignment(.center)
+                            .foregroundColor(.black)
+                            .frame(alignment: .center)
+                        }
+                    }
+                })
+            }
+            
+            
+            
+            
             Group{
                 //Text("data iniziale")
                 DatePicker("From", selection: $startDate, displayedComponents: .date)
-                    //.datePickerStyle(WheelDatePickerStyle())
+                //.datePickerStyle(WheelDatePickerStyle())
                     .padding()
                 
                 //Text("finale")
@@ -47,12 +103,13 @@ struct NewTravel: View {
                 //.datePickerStyle(GraphicalDatePickerStyle())
                     .padding()
                 
-                Text("Giorni trascorsi: \(calculateDaysBetweenDates())")
+                Text("Days: \(calculateDaysBetweenDates())")
                     .padding()
                 
             }
-                
+            
         }
+    }
     }
     
     
