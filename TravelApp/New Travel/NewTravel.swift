@@ -95,13 +95,13 @@ struct NewTravel: View {
             Text("Days: \(numberOfDays)")
                 .padding()
             
-            /*
+            
             Button(action: {
                 calculateDaysBetweenDates()
             }, label: {
                 Text("Button")
             })
-            */
+            
             
             
             
