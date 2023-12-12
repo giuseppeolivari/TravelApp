@@ -21,7 +21,7 @@ struct calendarUntilView: View {
             VStack{
                 
                 Text("Until")
-                DatePicker("Until", selection: $endDate, displayedComponents: .date)
+                DatePicker("", selection: $endDate, displayedComponents: .date)
                     .datePickerStyle(WheelDatePickerStyle())
                     .padding()
                     
@@ -46,7 +46,7 @@ struct calendarUntilView: View {
                     }
                 */
                 
-            }//.background(Color.gray)
+            }.background(Color.gray)
         }
     }
 }
