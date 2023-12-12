@@ -14,19 +14,15 @@ var body: some View{
         
         
         NavigationView{
-            VStack {
+            LazyVGrid(columns: [GridItem(.fixed(100))], content: {
                 
-                
-                
-                
-                
-            }.navigationTitle("Hello").toolbar(){
+            }).navigationTitle("Hello").toolbar(){
                 ToolbarItem(placement: .topBarTrailing) {
                     
                     Button{
                         //
                     }label: {
-                        Image(systemName: "globe")
+                        Image(systemName: "map")
                             .tint(.red)
                     }
                     
