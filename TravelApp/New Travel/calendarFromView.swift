@@ -14,18 +14,26 @@ struct calendarFromView: View {
     @Binding  var startDate : Date
     
     
+    
     var body: some View {
         //Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
         
-        
-        DatePicker("From", selection: $startDate, displayedComponents: .date)
-        .datePickerStyle(WheelDatePickerStyle())
-            .padding()
-        
-        
+        NavigationStack{
+            
+            
+            VStack{
+                
+                
+                DatePicker("From", selection: $startDate, displayedComponents: .date)
+                    .datePickerStyle(WheelDatePickerStyle())
+                    .padding()
+                
+                
+                
+            }//.background(Color.gray)
+        }
     }
 }
-
 #Preview {
-    calendarFromView(startDate: )
+    calendarFromView(startDate: .constant(Date()))
 }

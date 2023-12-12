@@ -13,18 +13,19 @@ struct NewTravel: View {
     @State  var endDate = Date()
     @State  var calendar1 = false
     @State  var calendar2 = false
+    @State  var numberOfDays : Int = 0
     
     
     var body: some View {
         ZStack{
             
             if calendar1{
-                calendarFromView()
+                calendarFromView(startDate: $startDate)
             }
             
             
             if calendar2{
-                calendarUntilView()
+                calendarUntilView(endDate: $endDate)
             }
         
         
@@ -42,6 +43,7 @@ struct NewTravel: View {
                         VStack{
                             Text("From")
                                 .fontWeight(.semibold)
+                                .accentColor(.black)
                             
                             
                             Image(systemName: "calendar").font(
@@ -65,7 +67,7 @@ struct NewTravel: View {
                 .frame(alignment: .center)
                 
                 
-                Button(action: {calendar1.toggle()}, label: {
+                Button(action: {calendar2.toggle()}, label: {
                     ZStack{
                         Rectangle()
                             .foregroundColor(.clear)
@@ -75,6 +77,7 @@ struct NewTravel: View {
                         VStack{
                             Text("Until")
                                 .fontWeight(.semibold)
+                                .accentColor(.black)
                             
                             
                             Image(systemName: "calendar").font(
@@ -89,9 +92,20 @@ struct NewTravel: View {
                 })
             }
             
+            Text("Days: \(numberOfDays)")
+                .padding()
+            
+            /*
+            Button(action: {
+                calculateDaysBetweenDates()
+            }, label: {
+                Text("Button")
+            })
+            */
             
             
             
+            /*
             Group{
                 //Text("data iniziale")
                 DatePicker("From", selection: $startDate, displayedComponents: .date)
@@ -105,21 +119,36 @@ struct NewTravel: View {
                 
                 Text("Days: \(calculateDaysBetweenDates())")
                     .padding()
+               
+                
+                func calculateDaysBetweenDates() -> Int {
+                        let calendar = Calendar.current
+                        let start = calendar.startOfDay(for: startDate)
+                        let end = calendar.startOfDay(for: endDate)
+                        let components = calendar.dateComponents([.day], from: start, to: end)
+                        return components.day ?? 0
+                    }
                 
             }
-            
+            */
         }
+        
     }
+        
     }
     
     
     
-    func calculateDaysBetweenDates() -> Int {
+    func calculateDaysBetweenDates() -> Void {
+        print(startDate.debugDescription)
+        print(endDate.debugDescription)
             let calendar = Calendar.current
             let start = calendar.startOfDay(for: startDate)
+        print(start.debugDescription)
             let end = calendar.startOfDay(for: endDate)
+        print(end.debugDescription)
             let components = calendar.dateComponents([.day], from: start, to: end)
-            return components.day ?? 0
+            numberOfDays = components.day ?? 0
         }
     
     
@@ -134,3 +163,8 @@ struct NewTravel: View {
 #Preview {
     NewTravel()
 }
+
+
+
+
+
