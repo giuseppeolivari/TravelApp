@@ -16,3 +16,4 @@ struct NoteList: View {
 #Preview {
     NoteList()
 }
+//ALI YOU ARE BEAUTIFUL
