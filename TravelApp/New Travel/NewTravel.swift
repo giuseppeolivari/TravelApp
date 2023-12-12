@@ -103,7 +103,7 @@ struct NewTravel: View {
             })
             
             
-            
+            Spacer()
             
             /*
             Group{
