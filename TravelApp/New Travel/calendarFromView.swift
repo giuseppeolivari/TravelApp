@@ -12,8 +12,9 @@ import SwiftUI
 struct calendarFromView: View {
     
     @Binding  var startDate : Date
+    @Binding  var calendar1 : Bool
     
-    
+        
     
     var body: some View {
         //Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
@@ -28,12 +29,14 @@ struct calendarFromView: View {
                     .datePickerStyle(WheelDatePickerStyle())
                     .padding()
                 
-                
+                Button("Save") {
+                    calendar1.toggle()
+                }
                 
             }//.background(Color.gray)
         }
     }
 }
 #Preview {
-    calendarFromView(startDate: .constant(Date()))
+    calendarFromView(startDate: .constant(Date()), calendar1: .constant(false))
 }

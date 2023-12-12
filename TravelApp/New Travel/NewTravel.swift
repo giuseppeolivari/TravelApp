@@ -20,12 +20,12 @@ struct NewTravel: View {
         ZStack{
             
             if calendar1{
-                calendarFromView(startDate: $startDate)
+                calendarFromView(startDate: $startDate, calendar1: $calendar1)
             }
             
             
             if calendar2{
-                calendarUntilView(endDate: $endDate)
+                calendarUntilView(endDate: $endDate, calendar2: $calendar2)
             }
         
         
@@ -133,7 +133,8 @@ struct NewTravel: View {
             */
         }
         
-    }
+        }
+        
         
     }
     

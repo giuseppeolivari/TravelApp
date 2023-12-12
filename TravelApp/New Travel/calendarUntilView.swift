@@ -9,6 +9,7 @@ import SwiftUI
 
 struct calendarUntilView: View {
     @Binding  var endDate : Date
+    @Binding  var calendar2 : Bool
     
     
     var body: some View {
@@ -19,15 +20,18 @@ struct calendarUntilView: View {
             
             VStack{
                 
-                
+                Text("Until")
                 DatePicker("Until", selection: $endDate, displayedComponents: .date)
                     .datePickerStyle(WheelDatePickerStyle())
                     .padding()
-                
-                
-                
-                
                     
+                
+                
+                
+                Button("Save") {
+                    calendar2.toggle()
+                }
+                   /*
                     ZStack{
                         Rectangle()
                             .foregroundColor(.clear)
@@ -40,13 +44,13 @@ struct calendarUntilView: View {
                         
                         
                     }
+                */
                 
-                
-            }.background(Color.gray)
+            }//.background(Color.gray)
         }
     }
 }
 
 #Preview {
-    calendarUntilView(endDate: .constant(Date()))
+    calendarUntilView(endDate: .constant(Date()), calendar2: .constant(false))
 }
