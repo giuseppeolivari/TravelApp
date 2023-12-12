@@ -20,6 +20,7 @@
 		06263F702B271CD60002D0A9 /* calendarUntilView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06263F6F2B271CD60002D0A9 /* calendarUntilView.swift */; };
 		06263F722B2849B10002D0A9 /* TravelNoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06263F712B2849B10002D0A9 /* TravelNoteModel.swift */; };
 		06263F742B2850A70002D0A9 /* NoteList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06263F732B2850A70002D0A9 /* NoteList.swift */; };
+		5DF3C6502B286D290091310F /* ModelWindowTrip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF3C64F2B286D290091310F /* ModelWindowTrip.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		06263F6F2B271CD60002D0A9 /* calendarUntilView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = calendarUntilView.swift; sourceTree = "<group>"; };
 		06263F712B2849B10002D0A9 /* TravelNoteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelNoteModel.swift; sourceTree = "<group>"; };
 		06263F732B2850A70002D0A9 /* NoteList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteList.swift; sourceTree = "<group>"; };
+		5DF3C64F2B286D290091310F /* ModelWindowTrip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelWindowTrip.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				06263F622B21E1240002D0A9 /* MainPage.swift */,
+				5DF3C64F2B286D290091310F /* ModelWindowTrip.swift */,
 			);
 			path = FirstPage;
 			sourceTree = "<group>";
@@ -206,6 +209,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5DF3C6502B286D290091310F /* ModelWindowTrip.swift in Sources */,
 				06263F672B21E1D10002D0A9 /* MapView.swift in Sources */,
 				06263F702B271CD60002D0A9 /* calendarUntilView.swift in Sources */,
 				06263F632B21E1240002D0A9 /* MainPage.swift in Sources */,

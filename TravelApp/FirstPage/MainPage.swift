@@ -9,33 +9,54 @@ import SwiftUI
 import UIKit
 
 struct MainPage: View {
-var body: some View{
-        
-        
+    let data = (1...100).map {"Pezzi\($0)"}
+    
+
+    var body: some View{
         
         NavigationView{
-            LazyVGrid(columns: [GridItem(.fixed(100))], content: {
-                
-            }).navigationTitle("Hello").toolbar(){
-                ToolbarItem(placement: .topBarTrailing) {
+            ScrollView{
+                LazyVGrid(columns: [GridItem(.fixed(100)),GridItem()], content: {
+                    ForEach(data, id: \.self){pezzo in
+                      Image("mappa")
+                            .opacity(1) //0.4
+                            .cornerRadius(230)
+                        
+                    }
                     
-                    Button{
-                        //
-                    }label: {
-                        Image(systemName: "map")
-                            .tint(.red)
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                }).navigationTitle("Hello").toolbar(){
+                    ToolbarItem(placement: .topBarTrailing) {
+                        
+                        Button{
+                            //
+                        }label: {
+                            Image(systemName: "map")
+                                .tint(.red)
+                        }
+                        
                     }
                     
                 }
-                
             }
+            
         }
-        
-        
-        
-        
-        
-        
     }
     
     
@@ -45,7 +66,7 @@ var body: some View{
     
     
     
-   
+    
     
     
     
