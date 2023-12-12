@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import MapKit
 
 struct NewTravel: View {
     
@@ -14,6 +15,8 @@ struct NewTravel: View {
     @State  var calendar1 = false
     @State  var calendar2 = false
     @State  var numberOfDays : Int = 0
+    
+    
     
     
     var body: some View {
@@ -30,6 +33,8 @@ struct NewTravel: View {
         
         
         VStack {
+           
+            
             HStack{
                 
                 

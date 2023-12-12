@@ -24,8 +24,8 @@ struct calendarFromView: View {
             
             VStack{
                 
-                
-                DatePicker("From", selection: $startDate, displayedComponents: .date)
+                Text("From")
+                DatePicker("", selection: $startDate, displayedComponents: .date)
                     .datePickerStyle(WheelDatePickerStyle())
                     .padding()
                 
@@ -33,7 +33,7 @@ struct calendarFromView: View {
                     calendar1.toggle()
                 }
                 
-            }//.background(Color.gray)
+            }.background(Color.gray)
         }
     }
 }

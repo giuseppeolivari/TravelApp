@@ -2,17 +2,56 @@
 //  MainPage.swift
 //  TravelApp
 //
-//  Created by Giuseppe Olivari on 07/12/23.
+//  Created by Adriano Prota on 11/12/23.
 //
 
 import SwiftUI
+import UIKit
 
 struct MainPage: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+var body: some View{
+        
+        
+        
+        NavigationView{
+            LazyVGrid(columns: [GridItem(.fixed(100))], content: {
+                
+            }).navigationTitle("Hello").toolbar(){
+                ToolbarItem(placement: .topBarTrailing) {
+                    
+                    Button{
+                        //
+                    }label: {
+                        Image(systemName: "map")
+                            .tint(.red)
+                    }
+                    
+                }
+                
+            }
+        }
+        
+        
+        
+        
+        
+        
     }
+    
+    
+    
+    
+    
+    
+    
+    
+   
+    
+    
+    
 }
 
 #Preview {
     MainPage()
 }
+
