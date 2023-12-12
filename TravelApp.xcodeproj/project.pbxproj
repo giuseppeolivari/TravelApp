@@ -16,6 +16,7 @@
 		06263F632B21E1240002D0A9 /* MainPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06263F622B21E1240002D0A9 /* MainPage.swift */; };
 		06263F652B21E1BA0002D0A9 /* TextEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06263F642B21E1BA0002D0A9 /* TextEditor.swift */; };
 		06263F672B21E1D10002D0A9 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06263F662B21E1D10002D0A9 /* MapView.swift */; };
+		244854152B2710E100963F35 /* TravelNoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244854142B2710E100963F35 /* TravelNoteModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		06263F622B21E1240002D0A9 /* MainPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPage.swift; sourceTree = "<group>"; };
 		06263F642B21E1BA0002D0A9 /* TextEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEditor.swift; sourceTree = "<group>"; };
 		06263F662B21E1D10002D0A9 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		244854142B2710E100963F35 /* TravelNoteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelNoteModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				06263F5E2B21E0D30002D0A9 /* TravelNote.swift */,
+				244854142B2710E100963F35 /* TravelNoteModel.swift */,
 			);
 			path = "Travel Note";
 			sourceTree = "<group>";
@@ -199,6 +202,7 @@
 				06263F652B21E1BA0002D0A9 /* TextEditor.swift in Sources */,
 				06263F522B21DD920002D0A9 /* ContentView.swift in Sources */,
 				06263F5F2B21E0D30002D0A9 /* TravelNote.swift in Sources */,
+				244854152B2710E100963F35 /* TravelNoteModel.swift in Sources */,
 				06263F612B21E0EC0002D0A9 /* NewTravel.swift in Sources */,
 				06263F502B21DD920002D0A9 /* TravelAppApp.swift in Sources */,
 			);
@@ -330,7 +334,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TravelApp/Preview Content\"";
-				DEVELOPMENT_TEAM = XQMJRDV4LZ;
+				DEVELOPMENT_TEAM = NG63KP9L93;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -368,7 +372,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TravelApp/Preview Content\"";
-				DEVELOPMENT_TEAM = XQMJRDV4LZ;
+				DEVELOPMENT_TEAM = NG63KP9L93;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
