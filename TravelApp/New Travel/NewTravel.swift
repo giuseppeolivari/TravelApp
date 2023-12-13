@@ -14,12 +14,16 @@ struct NewTravel: View {
     @State  var endDate = Date()
     @State  var calendar1 = false
     @State  var calendar2 = false
-    @State  var numberOfDays : Int = 0
+    var numberOfDays : Int {
+        return calculateDaysBetweenDates()
+    }
     @State  var travelName = ""
     //@State var totalDays = 0
     
     
-    @State private var selectedDates: [Date] = []
+    private var selectedDates: [Date] {
+        return saveDatesToArray()
+    }
     
     
     
@@ -126,7 +130,7 @@ struct NewTravel: View {
                     Text("Days: \(numberOfDays)")
                         .padding()
                     
-                    
+                   /*
                     Button(action: {
                         calculateDaysBetweenDates()
                         saveDatesToArray()
@@ -134,7 +138,7 @@ struct NewTravel: View {
                         Text("Button")
                     })
                     
-                    
+                    */
                     
                     
                     
@@ -196,7 +200,7 @@ struct NewTravel: View {
     
     
     
-    func calculateDaysBetweenDates() -> Void {
+    func calculateDaysBetweenDates() -> Int {
         print(startDate.debugDescription)
         print(endDate.debugDescription)
             let calendar = Calendar.current
@@ -205,17 +209,19 @@ struct NewTravel: View {
             let end = calendar.startOfDay(for: endDate)
         print(end.debugDescription)
             let components = calendar.dateComponents([.day], from: start, to: end)
-            numberOfDays = components.day ?? 0
+            
+        return components.day ?? 0
         }
     
     
-    func saveDatesToArray() {
-        selectedDates = []
+    func saveDatesToArray() -> [Date] {
+        var selectedDates: [Date] = []
         for index in 0..<numberOfDays {
             if let date = Calendar.current.date(byAdding: .day, value: index, to: startDate) {
                 selectedDates.append(date)
             }
         }
+        return selectedDates
     }
     
     
