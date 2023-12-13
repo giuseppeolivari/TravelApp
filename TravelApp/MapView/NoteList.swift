@@ -7,23 +7,36 @@
 
 // NoteList.swift
 // NoteList.swift
+// NoteList.swift
+// NoteList.swift
 import SwiftUI
 
 struct NoteList: View {
     let numberOfDays: Int
     let selectedDates: [Date]
+    let travelName: String
 
     var body: some View {
         VStack {
+            HStack {
+                       Image(systemName: "airplane")
+                           .resizable()
+                           .frame(width: 20, height:20)
+                           .foregroundColor(.blue)
+
+                       Text(travelName)
+                           .font(.title3)
+                           .fontWeight(.semibold)
+                           .foregroundColor(.blue)
+                   }
             // Header with a picture
             Image("Header")
                 .resizable()
-                         .scaledToFill()
-                         .frame(maxWidth: .infinity, maxHeight: 300)
-
-                         .opacity(0.8)
-                         .clipped()
-                         .cornerRadius(30)
+                .scaledToFill()
+                .frame(maxWidth: .infinity, maxHeight: 180)
+                .opacity(0.9)
+                .clipped()
+                .cornerRadius(18)
 
             // List of clickable dates
             List {
@@ -36,10 +49,6 @@ struct NoteList: View {
                             Text("Additional information or details for \(formattedDate(date))")
                                 .font(.subheadline)
                                 .foregroundColor(.secondary)
-                           /* Text("Number of Days: \(numberOfDays)")
-                                .font(.subheadline)
-                                .foregroundColor(.secondary)
-                            */
                         }
                         .padding(10)
                         .background(Color.white)
@@ -50,6 +59,7 @@ struct NoteList: View {
             }
             .listStyle(PlainListStyle())
         }
+        .navigationBarTitle("") // Clear the default navigation bar title
     }
 
     private func formattedDate(_ date: Date) -> String {
@@ -62,10 +72,9 @@ struct NoteList: View {
 
 struct NoteList_Previews: PreviewProvider {
     static var previews: some View {
-        NoteList(numberOfDays: 5, selectedDates: [Date(), Date(), Date(), Date(), Date()])
+        NoteList(numberOfDays: 5, selectedDates: [Date(), Date(), Date(), Date(), Date()], travelName: "Sample Travel")
     }
 }
-
 
 
 
