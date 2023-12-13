@@ -13,6 +13,9 @@ struct calendarFromView: View {
     
     @Binding  var startDate : Date
     @Binding  var calendar1 : Bool
+    //@Binding var total : Int
+    //var endDate: Date
+    //var numberOfDays:
     
         
     
@@ -37,6 +40,9 @@ struct calendarFromView: View {
             .cornerRadius(25.0)
         
     }
+    
+        
+    
 }
 #Preview {
     calendarFromView(startDate: .constant(Date()), calendar1: .constant(false))

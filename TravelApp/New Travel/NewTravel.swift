@@ -16,6 +16,7 @@ struct NewTravel: View {
     @State  var calendar2 = false
     @State  var numberOfDays : Int = 0
     @State  var travelName = ""
+    //@State var totalDays = 0
     
     
     @State private var selectedDates: [Date] = []
