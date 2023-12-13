@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import PhotosUI
 
 
 struct NewTravel: View {
@@ -18,8 +19,9 @@ struct NewTravel: View {
         return calculateDaysBetweenDates()
     }
     @State  var travelName = ""
-    //@State var totalDays = 0
     
+    
+    @State var coverPhoto : PhotosPickerItem?
     
     private var selectedDates: [Date] {
         return saveDatesToArray()
@@ -45,11 +47,16 @@ struct NewTravel: View {
                 
                 VStack() {
                     
-                    Text("Set location")
+                    Text("Set location:")
                         .font(.title2)
-                        .padding()
-                        .padding([ .leading], -195.0)
-                    
+                        .multilineTextAlignment(/*@START_MENU_TOKEN@*/.leading/*@END_MENU_TOKEN@*/)
+                        .lineLimit(nil)
+                        .padding([.top],50.0)
+                        
+                        
+                
+                
+            
                     
                     TextField("Add Location", text: $travelName)
                         .padding()
@@ -140,8 +147,22 @@ struct NewTravel: View {
                     
                     */
                     
+                    Image("mappa")
+                        .resizable()
+                        .aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fit/*@END_MENU_TOKEN@*/)
+                        //.scaledToFill()
+                        .clipShape(RoundedRectangle(cornerRadius: 20.0))
+                    //.frame(maxWidth: .infinity, maxHeight: 180)
+                    //.clipped()
+                        .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
                     
-                    
+                    PhotosPicker(selection: $coverPhoto, matching: .images, photoLibrary: .shared()) {
+                        Label("Add Image", systemImage : "camera")
+                            .accessibilityAddTraits([.isButton])
+                            .accessibilityLabel("Choose your cover photo")
+                            .accessibilityHint("Double tap to add a photo")
+                        
+                    }
                     
                     
                     

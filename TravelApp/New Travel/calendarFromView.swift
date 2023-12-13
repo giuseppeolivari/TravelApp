@@ -13,9 +13,7 @@ struct calendarFromView: View {
     
     @Binding  var startDate : Date
     @Binding  var calendar1 : Bool
-    //@Binding var total : Int
-    //var endDate: Date
-    //var numberOfDays:
+  
     
         
     
