@@ -48,6 +48,15 @@ struct NewTravel: View {
                         
                     TextField("Add Location", text: $travelName)
                         .padding()
+                        .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                        .fontWeight(.bold)
+                        .textFieldStyle(.roundedBorder)
+                        .textInputAutocapitalization(.words)
+                        
+                        
+                        
+                        
+                
                     
                     HStack{
                         
@@ -109,7 +118,7 @@ struct NewTravel: View {
                                 }
                             }
                         })
-                    }
+                    }.padding()
                     
                     Text("Days: \(numberOfDays)")
                         .padding()
@@ -126,9 +135,7 @@ struct NewTravel: View {
                    
                     
                     
-                    NavigationLink(destination: NoteList(numberOfDays: numberOfDays, selectedDates: selectedDates)) {
-                        Text("Go to NoteList")
-                    }
+                   
                     
                     
                     
@@ -170,12 +177,16 @@ struct NewTravel: View {
                 
                 
                 if calendar2{
-                    calendarUntilView(endDate: $endDate, calendar2: $calendar2).transition(.move(edge: .bottom))
-                        .zIndex(1.0)
+                    calendarUntilView(endDate: $endDate, calendar2: $calendar2)
                 }
                 
                 
             }.navigationBarTitle("New Travel")
+                .toolbar {
+                    NavigationLink(destination: NoteList(numberOfDays: numberOfDays, selectedDates: selectedDates)) {
+                        Text("Next")
+                    }
+                }
             
         }
     }
