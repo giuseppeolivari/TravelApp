@@ -19,15 +19,15 @@ struct NoteList: View {
     var body: some View {
         VStack {
             HStack {
-                       Image(systemName: "airplane")
+                       /* Image(systemName: "airplane")
                            .resizable()
                            .frame(width: 20, height:20)
                            .foregroundColor(.blue)
-
+*/
                        Text(travelName)
-                           .font(.title3)
-                           .fontWeight(.semibold)
-                           .foregroundColor(.blue)
+                           .font(.title)
+                           .fontWeight(.bold)
+                           //.foregroundColor(.blue)
                    }
             // Header with a picture
             Image("Header")
@@ -36,7 +36,8 @@ struct NoteList: View {
                 .frame(maxWidth: .infinity, maxHeight: 180)
                 .opacity(0.9)
                 .clipped()
-                .cornerRadius(18)
+                .cornerRadius(20)
+                .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
 
             // List of clickable dates
             List {
