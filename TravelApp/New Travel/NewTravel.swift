@@ -41,27 +41,28 @@ struct NewTravel: View {
                 VStack() {
                     
                     Text("Set location")
-                        .font(/*@START_MENU_TOKEN@*/.title2/*@END_MENU_TOKEN@*/)
+                        .font(.title2)
                         .padding()
                         .padding([ .leading], -195.0)
-                        
-                        
+                    
+                    
                     TextField("Add Location", text: $travelName)
                         .padding()
-                        .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                        .font(.title)
                         .fontWeight(.bold)
                         .textFieldStyle(.roundedBorder)
                         .textInputAutocapitalization(.words)
                         
-                        
-                        
-                        
-                
+                    
+                    
+                    
+                    
+                    
                     
                     HStack{
                         
                         
-                        Button(action: {calendar1.toggle()}, label: {
+                        Button(action: {withAnimation {calendar1.toggle()}}, label: {
                             ZStack{
                                 Rectangle()
                                     .foregroundColor(.clear)
@@ -95,7 +96,7 @@ struct NewTravel: View {
                         .frame(alignment: .center)
                         
                         
-                        Button(action: {calendar2.toggle()}, label: {
+                        Button(action: {withAnimation {calendar2.toggle()}}, label: {
                             ZStack{
                                 Rectangle()
                                     .foregroundColor(.clear)
@@ -119,6 +120,7 @@ struct NewTravel: View {
                             }
                         })
                     }.padding()
+                        
                     
                     Text("Days: \(numberOfDays)")
                         .padding()
@@ -132,10 +134,10 @@ struct NewTravel: View {
                     })
                     
                     
-                   
                     
                     
-                   
+                    
+                    
                     
                     
                     
@@ -170,14 +172,14 @@ struct NewTravel: View {
                 }
                 
                 if calendar1{
-                    calendarFromView(startDate: $startDate, calendar1: $calendar1).transition(.move(edge: .bottom))
+                    calendarFromView(startDate: $startDate, calendar1: $calendar1).transition(.scale)
                         .zIndex(1.0)
                 }
-                    
+                
                 
                 
                 if calendar2{
-                    calendarUntilView(endDate: $endDate, calendar2: $calendar2)
+                    calendarUntilView(endDate: $endDate, calendar2: $calendar2).transition(.scale)
                 }
                 
                 
@@ -224,6 +226,24 @@ struct NewTravel: View {
 #Preview {
     NewTravel()
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
