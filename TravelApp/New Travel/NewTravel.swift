@@ -183,8 +183,8 @@ struct NewTravel: View {
                 
             }.navigationBarTitle("New Travel")
                 .toolbar {
-                    NavigationLink(destination: NoteList(numberOfDays: numberOfDays, selectedDates: selectedDates)) {
-                        Text("Next")
+                    NavigationLink(destination: NoteList(numberOfDays: numberOfDays, selectedDates: selectedDates, travelName: travelName)) {
+                                 Text("Next")
                     }
                 }
             
