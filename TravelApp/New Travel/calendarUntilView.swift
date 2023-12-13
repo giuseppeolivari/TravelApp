@@ -47,6 +47,7 @@ struct calendarUntilView: View {
                 */
                 
             }.background(Color.gray)
+            .cornerRadius(25.0)
         
     }
 }
