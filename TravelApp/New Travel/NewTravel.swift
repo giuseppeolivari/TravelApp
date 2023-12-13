@@ -6,7 +6,9 @@
 //
 
 import SwiftUI
+import SwiftData
 import PhotosUI
+
 
 
 struct NewTravel: View {
@@ -22,6 +24,9 @@ struct NewTravel: View {
     
     
     @State var coverPhoto : PhotosPickerItem?
+    
+    
+    
     
     private var selectedDates: [Date] {
         return saveDatesToArray()
@@ -147,6 +152,11 @@ struct NewTravel: View {
                     
                     */
                     
+                    
+                    
+                    
+                    
+                    
                     Image("mappa")
                         .resizable()
                         .aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fit/*@END_MENU_TOKEN@*/)
@@ -156,6 +166,9 @@ struct NewTravel: View {
                     //.clipped()
                         .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
                     
+                     
+                    
+                    
                     PhotosPicker(selection: $coverPhoto, matching: .images, photoLibrary: .shared()) {
                         Label("Add Image", systemImage : "camera")
                             .accessibilityAddTraits([.isButton])
@@ -164,7 +177,8 @@ struct NewTravel: View {
                         
                     }
                     
-                    
+                   
+                        
                     
                     
                     Spacer()
@@ -247,8 +261,10 @@ struct NewTravel: View {
     
     
     
-}
     
+}
+
+
 
 
 #Preview {
