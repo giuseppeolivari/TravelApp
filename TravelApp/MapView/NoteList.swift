@@ -20,17 +20,11 @@ struct NoteList: View {
     var body: some View {
         VStack {
             HStack {
-                /* Image(systemName: "airplane")
-                    .resizable()
-                    .frame(width: 20, height:20)
-                    .foregroundColor(.blue)
-                */
                 Text(travelName)
                     .font(.title)
                     .fontWeight(.bold)
-                //.foregroundColor(.blue)
             }
-            // Header with a picture
+
             if let imageData = selectedImageData,
                let uiImage = UIImage(data: imageData) {
                 Image(uiImage: uiImage)
@@ -42,7 +36,7 @@ struct NoteList: View {
                     .cornerRadius(20)
                     .shadow(radius: 10)
             } else {
-                Image("Header") // Provide a default image if no image is selected
+                Image("Header")
                     .resizable()
                     .scaledToFill()
                     .frame(maxWidth: .infinity, maxHeight: 180)
@@ -52,10 +46,9 @@ struct NoteList: View {
                     .shadow(radius: 10)
             }
 
-            // List of clickable dates
             List {
                 ForEach(selectedDates, id: \.self) { date in
-                    NavigationLink(destination: Text("Details for \(formattedDate(date))")) {
+                    NavigationLink(destination: AddNoteView(selectedDate: formattedDate(date))) {
                         VStack(alignment: .leading, spacing: 8) {
                             Text(" \(formattedDate(date))")
                                 .font(.headline)
@@ -73,7 +66,7 @@ struct NoteList: View {
             }
             .listStyle(PlainListStyle())
         }
-        .navigationBarTitle("") // Clear the default navigation bar title
+        .navigationBarTitle("")
     }
 
     private func formattedDate(_ date: Date) -> String {
@@ -89,7 +82,5 @@ struct NoteList_Previews: PreviewProvider {
         NoteList(numberOfDays: 5, selectedDates: [Date(), Date(), Date(), Date(), Date()], travelName: "Sample Travel", selectedImageData: nil)
     }
 }
-
-
 
 //ALI YOU ARE BEAUTIFUL
