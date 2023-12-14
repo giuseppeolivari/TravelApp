@@ -17,6 +17,8 @@ struct NewTravel: View {
     @State  var endDate = Date()
     @State  var calendar1 = false
     @State  var calendar2 = false
+    @State private var selectedImageData: Data? = nil
+    
     var numberOfDays : Int {
         return calculateDaysBetweenDates()
     }
@@ -154,27 +156,42 @@ struct NewTravel: View {
                     
                     
                     
-                    
-                    
-                    
-                    Image("mappa")
-                        .resizable()
-                        .aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fit/*@END_MENU_TOKEN@*/)
+                    if let selectedImageData,
+                       let uiImage = UIImage(data: selectedImageData) {
+                        Image(uiImage: uiImage)
+                            .resizable()
+                            .aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fit/*@END_MENU_TOKEN@*/)
                         //.scaledToFill()
-                        .clipShape(RoundedRectangle(cornerRadius: 20.0))
-                    //.frame(maxWidth: .infinity, maxHeight: 180)
-                    //.clipped()
-                        .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
-                    
-                     
-                    
-                    
+                            .clipShape(RoundedRectangle(cornerRadius: 20.0))
+                        //.frame(maxWidth: .infinity, maxHeight: 180)
+                        //.clipped()
+                            .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+                    }
+                    else{
+                        Image("mappa")
+                            .resizable()
+                            .aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fit/*@END_MENU_TOKEN@*/)
+                        //.scaledToFill()
+                            .clipShape(RoundedRectangle(cornerRadius: 20.0))
+                        //.frame(maxWidth: .infinity, maxHeight: 180)
+                        //.clipped()
+                            .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+                    }
+                        
+                        
                     PhotosPicker(selection: $coverPhoto, matching: .images, photoLibrary: .shared()) {
                         Label("Add Image", systemImage : "camera")
                             .accessibilityAddTraits([.isButton])
                             .accessibilityLabel("Choose your cover photo")
                             .accessibilityHint("Double tap to add a photo")
                         
+                    }.onChange(of: coverPhoto) { newItem in
+                        Task {
+                            // Retrive selected asset in the form of Data
+                            if let data = try? await newItem?.loadTransferable(type: Data.self) {
+                                selectedImageData = data
+                            }
+                        }
                     }
                     
                    
