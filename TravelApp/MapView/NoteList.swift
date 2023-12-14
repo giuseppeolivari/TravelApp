@@ -15,29 +15,42 @@ struct NoteList: View {
     let numberOfDays: Int
     let selectedDates: [Date]
     let travelName: String
+    let selectedImageData: Data?
 
     var body: some View {
         VStack {
             HStack {
-                       /* Image(systemName: "airplane")
-                           .resizable()
-                           .frame(width: 20, height:20)
-                           .foregroundColor(.blue)
-*/
-                       Text(travelName)
-                           .font(.title)
-                           .fontWeight(.bold)
-                           //.foregroundColor(.blue)
-                   }
+                /* Image(systemName: "airplane")
+                    .resizable()
+                    .frame(width: 20, height:20)
+                    .foregroundColor(.blue)
+                */
+                Text(travelName)
+                    .font(.title)
+                    .fontWeight(.bold)
+                //.foregroundColor(.blue)
+            }
             // Header with a picture
-            Image("Header")
-                .resizable()
-                .scaledToFill()
-                .frame(maxWidth: .infinity, maxHeight: 180)
-                .opacity(0.9)
-                .clipped()
-                .cornerRadius(20)
-                .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+            if let imageData = selectedImageData,
+               let uiImage = UIImage(data: imageData) {
+                Image(uiImage: uiImage)
+                    .resizable()
+                    .scaledToFill()
+                    .frame(maxWidth: .infinity, maxHeight: 180)
+                    .opacity(0.9)
+                    .clipped()
+                    .cornerRadius(20)
+                    .shadow(radius: 10)
+            } else {
+                Image("Header") // Provide a default image if no image is selected
+                    .resizable()
+                    .scaledToFill()
+                    .frame(maxWidth: .infinity, maxHeight: 180)
+                    .opacity(0.9)
+                    .clipped()
+                    .cornerRadius(20)
+                    .shadow(radius: 10)
+            }
 
             // List of clickable dates
             List {
@@ -73,7 +86,7 @@ struct NoteList: View {
 
 struct NoteList_Previews: PreviewProvider {
     static var previews: some View {
-        NoteList(numberOfDays: 5, selectedDates: [Date(), Date(), Date(), Date(), Date()], travelName: "Sample Travel")
+        NoteList(numberOfDays: 5, selectedDates: [Date(), Date(), Date(), Date(), Date()], travelName: "Sample Travel", selectedImageData: nil)
     }
 }
 
