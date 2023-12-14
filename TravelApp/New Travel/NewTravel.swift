@@ -242,7 +242,7 @@ struct NewTravel: View {
                 
             }.navigationBarTitle("New Travel")
                 .toolbar {
-                    NavigationLink(destination: NoteList(numberOfDays: numberOfDays, selectedDates: selectedDates, travelName: travelName)) {
+                    NavigationLink(destination: NoteList(numberOfDays: numberOfDays, selectedDates: selectedDates, travelName: travelName, selectedImageData: selectedImageData )) {
                                  Text("Next")
                     }
                 }

@@ -15,7 +15,7 @@ struct NoteList: View {
     let numberOfDays: Int
     let selectedDates: [Date]
     let travelName: String
-
+    let selectedImageData: Data? = nil
     var body: some View {
         VStack {
             HStack {
@@ -29,6 +29,31 @@ struct NoteList: View {
                            .fontWeight(.bold)
                            //.foregroundColor(.blue)
                    }
+            
+            
+            if let selectedImageData,
+               let uiImage = UIImage(data: selectedImageData) {
+                Image(uiImage: uiImage)
+                    .resizable()
+                    .aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fit/*@END_MENU_TOKEN@*/)
+                //.scaledToFill()
+                    .clipShape(RoundedRectangle(cornerRadius: 20.0))
+                //.frame(maxWidth: .infinity, maxHeight: 180)
+                //.clipped()
+                    .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+            }
+            else{
+                Image("mappa")
+                    .resizable()
+                    .aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fit/*@END_MENU_TOKEN@*/)
+                //.scaledToFill()
+                    .clipShape(RoundedRectangle(cornerRadius: 20.0))
+                //.frame(maxWidth: .infinity, maxHeight: 180)
+                //.clipped()
+                    .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+            }
+            
+            
             // Header with a picture
             Image("Header")
                 .resizable()
