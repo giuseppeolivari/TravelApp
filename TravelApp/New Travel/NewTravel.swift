@@ -251,6 +251,7 @@ struct NewTravel: View {
     }
     
     //, selectedImageData: selectedImageData
+    //
     
     func calculateDaysBetweenDates() -> Int {
         print(startDate.debugDescription)
