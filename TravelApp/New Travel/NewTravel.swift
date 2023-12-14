@@ -108,6 +108,7 @@ struct NewTravel: View {
                         Image(uiImage: uiImage)
                             .resizable()
                             .aspectRatio(contentMode: .fit)
+                        
                             .clipShape(RoundedRectangle(cornerRadius: 20.0))
                             .shadow(radius: 10)
                     } else {
@@ -120,6 +121,7 @@ struct NewTravel: View {
                     
                     PhotosPicker(selection: $coverPhoto, matching: .images, photoLibrary: .shared()) {
                         Label("Add Image", systemImage: "camera")
+                            
                             .accessibilityAddTraits([.isButton])
                             .accessibilityLabel("Choose your cover photo")
                             .accessibilityHint("Double tap to add a photo")
@@ -162,12 +164,23 @@ struct NewTravel: View {
 
     
     func calculateDaysBetweenDates() -> Int {
-        let calendar = Calendar.current
-        let start = calendar.startOfDay(for: startDate)
-        let end = calendar.startOfDay(for: endDate)
-        let components = calendar.dateComponents([.day], from: start, to: end)
-        return components.day ?? 0
+        // if end date is > then start fai questo
+        if (endDate >= startDate) {
+            
+            
+            let calendar = Calendar.current
+            let start = calendar.startOfDay(for: startDate)
+            let end = calendar.startOfDay(for: endDate)
+            let components = calendar.dateComponents([.day], from: start, to: end)
+            return components.day ?? 0
+        }
+        // altrimenti ritorna end date = startdate
+        else {
+            //let endDate = startDate
+            return 0
+        }
     }
+    
     
     func saveDatesToArray() -> [Date] {
         var selectedDates: [Date] = []
@@ -180,13 +193,17 @@ struct NewTravel: View {
     }
     
 }
-
+/*
 struct NewTravel_Previews: PreviewProvider {
     static var previews: some View {
         NewTravel()
     }
 }
+*/
 
+#Preview {
+    NewTravel()
+}
 
 
 
