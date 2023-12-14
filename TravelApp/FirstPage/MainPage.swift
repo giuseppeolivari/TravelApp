@@ -1,4 +1,4 @@
-
+//
 //  MainPage.swift
 //  TravelApp
 //
@@ -9,10 +9,10 @@ import SwiftUI
 import UIKit
 
 struct MainPage: View {
-    let data = (1...20).map {"Pezzi\($0)"}
+    let data = (0...1).map {"Pezzi\($0)"}
     let image1 = "mappa"
     var bool : Bool = true
-  
+    
     
     var body: some View{
         
@@ -21,7 +21,7 @@ struct MainPage: View {
                 LazyVGrid(columns: [/*GridItem(spacing: 10),*/GridItem(.flexible(), spacing: 10)], content: {
                     ForEach(data, id: \.self){pezzo in
                         if bool {
-                            NavigationLink(destination: TravelApp.NewTravel(), label:{
+                            NavigationLink(destination: NewTravel(), label:{
                                 
                                 Image(image1)
                                     .resizable()
@@ -33,8 +33,9 @@ struct MainPage: View {
                                         Image(systemName: "plus.circle")
                                             .resizable()
                                             .opacity(0.6)
-                                            .frame(width: 60, height: 60,alignment: .bottomTrailing)
+                                            .frame(width: 60, height: 60)
                                             .tint(.black)
+                                        
                                     )})
                         } else{
                             Text("CIAO")
@@ -44,13 +45,9 @@ struct MainPage: View {
                     
                 }).navigationTitle("Hello").toolbar(){
                     ToolbarItem(placement: .topBarTrailing) {
+                        NavigationLink(destination: MapView(), label: {Image(systemName: "map")
+                            .tint(.red)} )
                         
-                        Button{
-                            //
-                        }label: {
-                            Image(systemName: "map")
-                                .tint(.red)
-                        }
                         
                     }
                     
@@ -74,5 +71,7 @@ struct MainPage: View {
 }
 
 #Preview {
-    MainPage()
+    NavigationStack{
+        MainPage()
+    }
 }

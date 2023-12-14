@@ -242,7 +242,7 @@ struct NewTravel: View {
                 
             }.navigationBarTitle("New Travel")
                 .toolbar {
-                    NavigationLink(destination: NoteList(numberOfDays: numberOfDays, selectedDates: selectedDates, travelName: travelName, selectedImageData: selectedImageData )) {
+                    NavigationLink(destination: NoteList(numberOfDays: numberOfDays, selectedDates: selectedDates, travelName: travelName )) {
                                  Text("Next")
                     }
                 }
@@ -250,7 +250,7 @@ struct NewTravel: View {
         }
     }
     
-    
+    //, selectedImageData: selectedImageData
     
     func calculateDaysBetweenDates() -> Int {
         print(startDate.debugDescription)
