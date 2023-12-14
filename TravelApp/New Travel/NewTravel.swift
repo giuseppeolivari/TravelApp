@@ -152,11 +152,14 @@ struct NewTravel: View {
             .toolbar {
                 NavigationLink(destination: NoteList(numberOfDays: numberOfDays, selectedDates: selectedDates, travelName: travelName, selectedImageData: selectedImageData)) {
                     Text("Next")
+
                 }
             }
             
         }
     }
+    
+
     
     func calculateDaysBetweenDates() -> Int {
         let calendar = Calendar.current
