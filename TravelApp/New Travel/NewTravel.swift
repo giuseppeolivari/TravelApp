@@ -108,6 +108,7 @@ struct NewTravel: View {
                         Image(uiImage: uiImage)
                             .resizable()
                             .aspectRatio(contentMode: .fit)
+                        
                             .clipShape(RoundedRectangle(cornerRadius: 20.0))
                             .shadow(radius: 10)
                     } else {
@@ -180,13 +181,17 @@ struct NewTravel: View {
     }
     
 }
-
+/*
 struct NewTravel_Previews: PreviewProvider {
     static var previews: some View {
         NewTravel()
     }
 }
+*/
 
+#Preview {
+    NewTravel()
+}
 
 
 
