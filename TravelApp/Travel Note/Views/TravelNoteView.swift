@@ -4,7 +4,7 @@
 //
 //  Created by Alessandro Esposito Vulgo Gigante on 14/11/23.
 //
-
+/*
 import SwiftUI
 import SwiftData
 
@@ -164,4 +164,4 @@ struct MainView: View {
     MainView()
         .modelContainer(for: DataNote.self, inMemory: true)
 }
-
+*/

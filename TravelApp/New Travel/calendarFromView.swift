@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 
 
@@ -26,6 +27,7 @@ struct calendarFromView: View {
             VStack{
                 
                 Text("From")
+                    .font(.title2)
                 DatePicker("", selection: $startDate, displayedComponents: .date)
                     .datePickerStyle(WheelDatePickerStyle())
                     .padding()
@@ -35,7 +37,7 @@ struct calendarFromView: View {
                 }
                 
             }.background(Color.gray)
-            .cornerRadius(25.0)
+            .cornerRadius(30.0)
         
     }
     

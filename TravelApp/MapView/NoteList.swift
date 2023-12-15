@@ -10,17 +10,22 @@
 // NoteList.swift
 // NoteList.swift
 import SwiftUI
-
+import SwiftData
+/*
 struct NoteList: View {
     let numberOfDays: Int
     let selectedDates: [Date]
-    let travelName: String
+    let travel: Travel
     let selectedImageData: Data?
+ 
+    @Environment(\.modelContext) private var modelContext
+ 
+    //@Query
 
     var body: some View {
         VStack {
             HStack {
-                Text(travelName)
+                Text(travel.name)
                     .font(.title)
                     .fontWeight(.bold)
             }
@@ -82,5 +87,15 @@ struct NoteList_Previews: PreviewProvider {
         NoteList(numberOfDays: 5, selectedDates: [Date(), Date(), Date(), Date(), Date()], travelName: "Sample Travel", selectedImageData: nil)
     }
 }
-
+*/
 //ALI YOU ARE BEAUTIFUL
+
+
+/*
+ struct NoteList_Previews: PreviewProvider {
+     static var previews: some View {
+         NoteList(numberOfDays: 5, selectedDates: [Date(), Date(), Date(), Date(), Date()], travelName: "Sample Travel", selectedImageData: nil)
+     }
+ }
+
+ */

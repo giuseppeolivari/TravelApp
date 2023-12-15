@@ -11,7 +11,9 @@ import SwiftUI
 struct TravelAppApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainPage()
+            
         }
+        .modelContainer(for: Travel.self) //aggiunto
     }
 }

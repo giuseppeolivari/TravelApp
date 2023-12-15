@@ -9,6 +9,10 @@ import SwiftData
 import PhotosUI
 
 struct NewTravel: View {
+ 
+    @Binding  var isPresented : Bool
+    
+    @State var travel = Travel(name: "")
     
     @State private var startDate = Date()
     @State private var endDate = Date()
@@ -19,6 +23,7 @@ struct NewTravel: View {
     var numberOfDays: Int {
         return calculateDaysBetweenDates()
     }
+    
     @State private var travelName = ""
     
     @State private var coverPhoto: PhotosPickerItem?
@@ -27,10 +32,17 @@ struct NewTravel: View {
         return saveDatesToArray()
     }
     
+    
+    
+    @Environment(\.modelContext) private var modelContext
+    
+    //@Query private var 
+    
+    
     var body: some View {
         
         NavigationStack {
-            
+        
             ZStack {
                 
                 VStack {
@@ -47,6 +59,9 @@ struct NewTravel: View {
                         .fontWeight(.bold)
                         .textFieldStyle(.roundedBorder)
                         .textInputAutocapitalization(.words)
+                        .onChange(of: travelName) { oldValue, newValue in
+                            travel.name = travelName
+                        }
                     
                     HStack {
                         
@@ -135,6 +150,8 @@ struct NewTravel: View {
                         }
                     }
                     
+                   
+                    
                     Spacer()
                 }
                 
@@ -151,10 +168,26 @@ struct NewTravel: View {
                 
             }
             .navigationBarTitle("New Travel")
+            
             .toolbar {
+               
+                
+                /*
                 NavigationLink(destination: NoteList(numberOfDays: numberOfDays, selectedDates: selectedDates, travelName: travelName, selectedImageData: selectedImageData)) {
                     Text("Next")
-
+                }
+             */
+                
+                Button("Done") {
+                    let travel = Travel(name: " ")
+                    travel.name = travelName
+                    travel.daysNumber = numberOfDays
+                    travel.dates  = selectedDates 
+                    travel.photo = selectedImageData
+                    
+                    modelContext.insert(travel)
+                    
+                    isPresented.toggle()
                 }
             }
             
@@ -193,16 +226,9 @@ struct NewTravel: View {
     }
     
 }
-/*
-struct NewTravel_Previews: PreviewProvider {
-    static var previews: some View {
-        NewTravel()
-    }
-}
-*/
 
 #Preview {
-    NewTravel()
+    NewTravel(isPresented: .constant(false))
 }
 
 
@@ -212,256 +238,3 @@ struct NewTravel_Previews: PreviewProvider {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-//
-//  NewTravel.swift
-//  TravelApp
-//
-//  Created by Giuseppe Olivari on 07/12/23.
-//
-
-import SwiftUI
-
-
-struct NewTravel: View {
-    
-    @State  var startDate = Date()
-    @State  var endDate = Date()
-    @State  var calendar1 = false
-    @State  var calendar2 = false
-    var numberOfDays : Int {
-        return calculateDaysBetweenDates()
-    }
-    @State  var travelName = ""
-    //@State var totalDays = 0
-    
-    
-    private var selectedDates: [Date] {
-        return saveDatesToArray()
-    }
-    
-    
-    
-    var body: some View {
-        
-        NavigationStack{
-            
-            ZStack{
-                /*
-                 if calendar1{
-                 calendarFromView(startDate: $startDate, calendar1: $calendar1)
-                 }
-                 
-                 
-                 if calendar2{
-                 calendarUntilView(endDate: $endDate, calendar2: $calendar2)
-                 }
-                 */
-                
-                VStack() {
-                    
-                    Text("Set location")
-                        .font(.title2)
-                        .padding()
-                        .padding([ .leading], -195.0)
-                    
-                    
-                    TextField("Add Location", text: $travelName)
-                        .padding()
-                        .font(.title)
-                        .fontWeight(.bold)
-                        .textFieldStyle(.roundedBorder)
-                        .textInputAutocapitalization(.words)
-                        
-                    
-                    
-                    
-                    
-                    
-                    
-                    HStack{
-                        
-                        
-                        Button(action: {withAnimation {calendar1.toggle()}}, label: {
-                            ZStack{
-                                Rectangle()
-                                    .foregroundColor(.clear)
-                                    .frame(width: 145, height: 95)
-                                    .background(Color.gray)
-                                    .cornerRadius(20)
-                                VStack{
-                                    Text("From")
-                                        .fontWeight(.semibold)
-                                        .accentColor(.black)
-                                    
-                                    
-                                    Image(systemName: "calendar").font(
-                                        Font.custom("SF Pro", size: 45)
-                                        
-                                    )
-                                    .multilineTextAlignment(.center)
-                                    .foregroundColor(.black)
-                                    .frame(alignment: .center)
-                                }
-                            }
-                        })
-                        
-                        
-                        Image(systemName: "arrow.forward").font(
-                            Font.custom("SF Pro", size: 45)
-                            
-                        )
-                        .multilineTextAlignment(.center)
-                        .foregroundColor(.black)
-                        .frame(alignment: .center)
-                        
-                        
-                        Button(action: {withAnimation {calendar2.toggle()}}, label: {
-                            ZStack{
-                                Rectangle()
-                                    .foregroundColor(.clear)
-                                    .frame(width: 145, height: 95)
-                                    .background(Color.gray)
-                                    .cornerRadius(20)
-                                VStack{
-                                    Text("Until")
-                                        .fontWeight(.semibold)
-                                        .accentColor(.black)
-                                    
-                                    
-                                    Image(systemName: "calendar").font(
-                                        Font.custom("SF Pro", size: 45)
-                                        
-                                    )
-                                    .multilineTextAlignment(.center)
-                                    .foregroundColor(.black)
-                                    .frame(alignment: .center)
-                                }
-                            }
-                        })
-                    }.padding()
-                        
-                    
-                    Text("Days: \(numberOfDays)")
-                        .padding()
-                    
-                   /*
-                    Button(action: {
-                        calculateDaysBetweenDates()
-                        saveDatesToArray()
-                    }, label: {
-                        Text("Button")
-                    })
-                    
-                    */
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    Spacer()
-                    
-                    /*
-                     Group{
-                     //Text("data iniziale")
-                     DatePicker("From", selection: $startDate, displayedComponents: .date)
-                     //.datePickerStyle(WheelDatePickerStyle())
-                     .padding()
-                     
-                     //Text("finale")
-                     DatePicker("To", selection: $endDate, displayedComponents: .date)
-                     //.datePickerStyle(GraphicalDatePickerStyle())
-                     .padding()
-                     
-                     Text("Days: \(calculateDaysBetweenDates())")
-                     .padding()
-                     
-                     
-                     func calculateDaysBetweenDates() -> Int {
-                     let calendar = Calendar.current
-                     let start = calendar.startOfDay(for: startDate)
-                     let end = calendar.startOfDay(for: endDate)
-                     let components = calendar.dateComponents([.day], from: start, to: end)
-                     return components.day ?? 0
-                     }
-                     
-                     }
-                     */
-                }
-                
-                if calendar1{
-                    calendarFromView(startDate: $startDate, calendar1: $calendar1).transition(.scale)
-                        .zIndex(1.0)
-                }
-                
-                
-                
-                if calendar2{
-                    calendarUntilView(endDate: $endDate, calendar2: $calendar2).transition(.scale)
-                }
-                
-                
-            }.navigationBarTitle("New Travel")
-                .toolbar {
-                    NavigationLink(destination: NoteList(numberOfDays: numberOfDays, selectedDates: selectedDates, travelName: travelName)) {
-                                 Text("Next")
-                    }
-                }
-            
-        }
-    }
-    
-    
-    
-    func calculateDaysBetweenDates() -> Int {
-        print(startDate.debugDescription)
-        print(endDate.debugDescription)
-            let calendar = Calendar.current
-            let start = calendar.startOfDay(for: startDate)
-        print(start.debugDescription)
-            let end = calendar.startOfDay(for: endDate)
-        print(end.debugDescription)
-            let components = calendar.dateComponents([.day], from: start, to: end)
-            
-        return components.day ?? 0
-        }
-    
-    
-    func saveDatesToArray() -> [Date] {
-        var selectedDates: [Date] = []
-        for index in 0..<numberOfDays {
-            if let date = Calendar.current.date(byAdding: .day, value: index, to: startDate) {
-                selectedDates.append(date)
-            }
-        }
-        return selectedDates
-    }
-    
-    
-    
-}
-    
-
-
-#Preview {
-    NewTravel()
-}
-
-
-*/

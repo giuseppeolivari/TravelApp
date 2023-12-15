@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct calendarUntilView: View {
     @Binding  var endDate : Date
@@ -21,6 +22,7 @@ struct calendarUntilView: View {
             VStack{
                 
                 Text("Until")
+                    .font(.title2)
                 DatePicker("", selection: $endDate, displayedComponents: .date)
                     .datePickerStyle(WheelDatePickerStyle())
                     .padding()
@@ -47,7 +49,7 @@ struct calendarUntilView: View {
                 */
                 
             }.background(Color.gray)
-            .cornerRadius(25.0)
+            .cornerRadius(30.0)
         
     }
 }
