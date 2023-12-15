@@ -77,7 +77,8 @@ struct MainPage: View {
                                 }
                             }
                         }.onDelete(perform: deleteItems)
-                    }
+                }.listStyle(.plain)
+            
                     .navigationTitle("TravelApp")
                 
         }
