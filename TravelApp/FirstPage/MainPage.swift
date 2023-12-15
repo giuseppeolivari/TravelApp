@@ -31,6 +31,7 @@ struct MainPage: View {
                                 .resizable()
                                 .cornerRadius(30)
                                 .frame(width: 350, height: 200)
+                                .shadow(radius: 10)
                                 .opacity(0.8)
                                 .overlay(
                                     Image(systemName: "plus.circle")
@@ -53,10 +54,10 @@ struct MainPage: View {
                                     Image(uiImage: uiImage)
                                         .resizable()
                                         .scaledToFill()
-                                        .frame(maxWidth: .infinity, maxHeight: 180)
+                                        .frame(width: 350, height: 200)
                                         .opacity(0.9)
                                         .clipped()
-                                        .cornerRadius(20)
+                                        .cornerRadius(30)
                                         .shadow(radius: 10)
                                 } else {
                                     Image("mappa")
@@ -74,12 +75,21 @@ struct MainPage: View {
                                     .padding(.trailing, 90)
                             }
                         }
-                    }
+                    }.onDelete(perform: deleteItems)
                 })
                 .navigationTitle("TravelApp")
             }
         }
     }
+    
+    private func deleteItems(offsets: IndexSet) {
+        withAnimation {
+            for index in offsets {
+                modelContext.delete(viaggio[index])
+            }
+        }
+    }
+    
 }
 
 struct MainPage_Previews: PreviewProvider {
