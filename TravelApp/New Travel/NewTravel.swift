@@ -70,7 +70,7 @@ struct NewTravel: View {
                                 Rectangle()
                                     .foregroundColor(.clear)
                                     .frame(width: 145, height: 95)
-                                    .background(Color.gray)
+                                    .background(Color.orange)
                                     .cornerRadius(20)
                                 VStack {
                                     Text("From")
@@ -97,7 +97,7 @@ struct NewTravel: View {
                                 Rectangle()
                                     .foregroundColor(.clear)
                                     .frame(width: 145, height: 95)
-                                    .background(Color.gray)
+                                    .background(Color.orange)
                                     .cornerRadius(20)
                                 VStack {
                                     Text("Until")

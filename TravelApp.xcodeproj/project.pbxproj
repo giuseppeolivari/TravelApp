@@ -21,7 +21,6 @@
 		06263F742B2850A70002D0A9 /* NoteList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06263F732B2850A70002D0A9 /* NoteList.swift */; };
 		069B8DEF2B29D3C500AD5D83 /* TravelNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069B8DEE2B29D3C500AD5D83 /* TravelNoteView.swift */; };
 		069B8E112B2B159100AD5D83 /* Travel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069B8E102B2B159100AD5D83 /* Travel.swift */; };
-		5DF3C6502B286D290091310F /* ModelWindowTrip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF3C64F2B286D290091310F /* ModelWindowTrip.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,7 +40,6 @@
 		06263F732B2850A70002D0A9 /* NoteList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteList.swift; sourceTree = "<group>"; };
 		069B8DEE2B29D3C500AD5D83 /* TravelNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelNoteView.swift; sourceTree = "<group>"; };
 		069B8E102B2B159100AD5D83 /* Travel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Travel.swift; sourceTree = "<group>"; };
-		5DF3C64F2B286D290091310F /* ModelWindowTrip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelWindowTrip.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,7 +97,6 @@
 			isa = PBXGroup;
 			children = (
 				06263F622B21E1240002D0A9 /* MainPage.swift */,
-				5DF3C64F2B286D290091310F /* ModelWindowTrip.swift */,
 			);
 			path = FirstPage;
 			sourceTree = "<group>";
@@ -221,7 +218,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				069B8E112B2B159100AD5D83 /* Travel.swift in Sources */,
-				5DF3C6502B286D290091310F /* ModelWindowTrip.swift in Sources */,
 				06263F672B21E1D10002D0A9 /* MapView.swift in Sources */,
 				069B8DEF2B29D3C500AD5D83 /* TravelNoteView.swift in Sources */,
 				06263F702B271CD60002D0A9 /* calendarUntilView.swift in Sources */,
@@ -372,10 +368,11 @@
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
@@ -410,10 +407,11 @@
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";

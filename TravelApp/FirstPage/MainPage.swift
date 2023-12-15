@@ -8,9 +8,7 @@
 import SwiftUI
 import UIKit
 import SwiftData
-import SwiftUI
-import UIKit
-import SwiftData
+
 
 struct MainPage: View {
     @State var isPresented: Bool = false
@@ -45,14 +43,15 @@ struct MainPage: View {
                                             .padding(.leading, 140)
                                     )
                             }
-                        }).fullScreenCover(isPresented: $isPresented) {
+                        }).listRowSeparator(.hidden)
+                        .fullScreenCover(isPresented: $isPresented) {
                             NewTravel(isPresented: $isPresented)
                         }
                         
                         ForEach(viaggio) { peppe in
                             NavigationLink(destination: NoteList(travel: peppe)) {
                                 VStack{
-                                    Text(peppe.name)
+                                    Text(peppe.name + ":")
                                         .font(.largeTitle)
                                         .fontWeight(.bold)
                                     
@@ -82,11 +81,12 @@ struct MainPage: View {
                                             .padding([.bottom, .trailing], 130)
                                             .padding(.trailing, 90)
                                     }
-                                }}
+                                }}.listRowSeparator(.hidden)
                         }.onDelete(perform: deleteItems)
                 }
                 .listRowSeparator(.hidden)
-                .listStyle(.plain)
+                .listStyle(.inset)
+                
                 
                 .navigationTitle("TravelApp")
                 
@@ -103,12 +103,25 @@ struct MainPage: View {
     
 }
 
+#Preview {
+    
+        MainPage()
+    
+}
+
+
+
+
+/*
 struct MainPage_Previews: PreviewProvider {
     static var previews: some View {
         MainPage()
     }
 }
-
+*/
+ 
+ 
+ 
 /*
  Secchio dell'immondizia di adriano
  
