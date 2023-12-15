@@ -16,11 +16,14 @@ class Travel: Identifiable {
     var photo: Data?
     var daysNumber: Int = 0
     var dates: [Date]?
+   // var pageday:[PageDay]
     
     
     
     var storedImages : [Data] = []
     var additionalText: String = ""
+
+    
 
     
     
@@ -29,7 +32,7 @@ class Travel: Identifiable {
     
     init(name: String){
         self.name = name
-        
+     //   self.pageday = pageday
     }
     
 }

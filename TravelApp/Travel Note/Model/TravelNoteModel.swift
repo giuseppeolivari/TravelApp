@@ -1,36 +1,24 @@
 //
-//  NoteModel.swift
-//  MyDummyNotes
+//import Foundation
+//import SwiftData
 //
-//  Created by 
 //
-
-/*
-import Foundation
-import SwiftData
-import UIKit
-import SwiftUI
-
-@Model
-class DataNote: Identifiable {
-    
-    @Attribute(.unique)
-    var id : String
-  //  var timeStamp: Date
-    var additionalText: String
-  //  var storedImages : [Data] = []
-    
-    init(additionalText: String, timestamp : Date = .now) {
-        self.id = UUID().uuidString
-        self.additionalText = additionalText
-        
-        
-    }
-    
-}
-
-
-*/
-    
-    
-
+//
+//
+//@Model
+//class PageDay: Identifiable {
+//    
+//    @Attribute(.unique) var id = UUID()
+//    
+//    var travel:Travel
+//    var storedImages : [Data] = []
+//    var additionalText: String = ""
+//    
+//    init(storedImages: [Data], additionalText: String,travel:Travel) {
+//        self.storedImages = storedImages
+//        self.additionalText = additionalText
+//        self.travel = travel
+//    }
+//}
+//    
+//
