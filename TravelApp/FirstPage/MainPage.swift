@@ -55,7 +55,6 @@ struct MainPage: View {
                                         .resizable()
                                         .scaledToFill()
                                         .frame(width: 350, height: 200)
-                                        .opacity(0.9)
                                         .clipped()
                                         .cornerRadius(30)
                                         .shadow(radius: 10)
