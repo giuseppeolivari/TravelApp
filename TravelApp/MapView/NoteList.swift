@@ -28,9 +28,9 @@ struct NoteList: View {
                     .resizable()
                     .scaledToFill()
                     .frame(maxWidth: 360, maxHeight: 180)
-                    .opacity(0.8)
+                    //.opacity(0.8)
                     .clipped()
-                    .cornerRadius(20)
+                    .cornerRadius(30)
                     .shadow(radius: 10)
             } else {
                 Image("mappa")

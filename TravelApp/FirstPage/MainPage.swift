@@ -51,34 +51,38 @@ struct MainPage: View {
                         
                         ForEach(viaggio) { peppe in
                             NavigationLink(destination: NoteList(travel: peppe)) {
-                                ZStack {
-                                    if let imageData = peppe.photo,
-                                       let uiImage = UIImage(data: imageData) {
-                                        Image(uiImage: uiImage)
-                                            .resizable()
-                                            //.scaledToFill()
-                                            .frame(width: 350, height: 200)
-                                            .aspectRatio(contentMode: .fit)
-                                            .scaledToFit()
-                                            .clipped()
-                                            .cornerRadius(30)
-                                            .shadow(radius: 10)
-                                    } else {
-                                        Image("mappa")
-                                            .resizable()
-                                            .cornerRadius(30)
-                                            .frame(width: 350, height: 200)
-                                    }
-                                    
+                                VStack{
                                     Text(peppe.name)
                                         .font(.largeTitle)
                                         .fontWeight(.bold)
-                                        .tint(.black)
-                                        .background(Color.white.opacity(0.5))
-                                        .padding([.bottom, .trailing], 130)
-                                        .padding(.trailing, 90)
-                                }
-                            }
+                                    
+                                    ZStack {
+                                        if let imageData = peppe.photo,
+                                           let uiImage = UIImage(data: imageData) {
+                                            Image(uiImage: uiImage)
+                                                .resizable()
+                                                .scaledToFill()
+                                                .frame(maxWidth: 350, maxHeight: 200)
+                                            //.opacity(0.8)
+                                                .clipped()
+                                                .cornerRadius(30)
+                                                .shadow(radius: 10)
+                                        } else {
+                                            Image("mappa")
+                                                .resizable()
+                                                .cornerRadius(30)
+                                                .frame(width: 350, height: 200)
+                                        }
+                                        
+                                        Text(peppe.name)
+                                            .font(.largeTitle)
+                                            .fontWeight(.bold)
+                                            .tint(.black)
+                                            .background(Color.white.opacity(0.5))
+                                            .padding([.bottom, .trailing], 130)
+                                            .padding(.trailing, 90)
+                                    }
+                                }}
                         }.onDelete(perform: deleteItems)
                 }
                 .listRowSeparator(.hidden)
