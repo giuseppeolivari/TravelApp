@@ -141,10 +141,10 @@ struct NewTravel: View {
                             .accessibilityLabel("Choose your cover photo")
                             .accessibilityHint("Double tap to add a photo")
                     }
-                    .onChange(of: coverPhoto) { newItem in
+                    .onChange(of: coverPhoto) {
                         Task {
                             // Retrieve selected asset in the form of Data
-                            if let data = try? await newItem?.loadTransferable(type: Data.self) {
+                            if let data = try? await coverPhoto?.loadTransferable(type: Data.self) {
                                 selectedImageData = data
                             }
                         }

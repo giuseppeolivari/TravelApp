@@ -45,7 +45,7 @@ struct NoteList: View {
 
             List {
                 ForEach(travel.dates ?? [], id: \.self) { date in
-                    NavigationLink(destination: AddNoteView(selectedDate: formattedDate(date))) {
+                    NavigationLink(destination: AddNoteView(note: travel, selectedDate: formattedDate(date))) {
                         VStack(alignment: .leading, spacing: 8) {
                             Text(" \(formattedDate(date))")
                                 .font(.headline)

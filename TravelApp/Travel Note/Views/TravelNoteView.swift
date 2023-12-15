@@ -2,7 +2,7 @@
 //  MainView.swift
 //  MyDummyNotes
 //
-//  Created by Alessandro Esposito Vulgo Gigante on 14/11/23.
+//  Created by 
 //
 /*
 import SwiftUI
@@ -10,16 +10,16 @@ import SwiftData
 
 struct MainView: View {
     
-    //Swift Data
+   // Swift Data
     
     @Environment(\.modelContext) private var context
     
     @Query private var notes : [DataNote]
     
-    //Searchbar
+  //  Searchbar
     @State private var searchText = ""
     
-    //Filter by additional text
+   // Filter by additional text
     var searchResults: [DataNote] {
         if searchText.isEmpty {
             return notes
@@ -28,7 +28,7 @@ struct MainView: View {
         }
     }
     
-    //Dynamic Type options
+  //  Dynamic Type options
     @Environment(\.sizeCategory) var sizeCategory
     
     var body: some View {
@@ -54,7 +54,7 @@ struct MainView: View {
                                     .font(.body)
                                 
                                 
-                                //Spacer()
+                                Spacer()
                                 
                                 if let imageData = note.storedImages.first,
                                    let uiImage = UIImage(data: imageData){
@@ -76,7 +76,7 @@ struct MainView: View {
                     
                 }  else {
                     
-                    //Normal View
+                 //   Normal View
                     
                     ForEach(searchResults, id: \.self) { note in
                         NavigationLink(destination: AddNoteView(note: note)) {
@@ -151,10 +151,10 @@ struct MainView: View {
         
     }
     
-    func deleteNote( _ note: DataNote) {
-        //Delete the note
+    func deleteNote( _ travel: Travel) {
+       
         // The underscored variable name refers to the underlying storage
-        context.delete(note)
+        context.delete(travel)
     }
     
 }
@@ -162,6 +162,6 @@ struct MainView: View {
 
 #Preview {
     MainView()
-        .modelContainer(for: DataNote.self, inMemory: true)
+        .modelContainer(for: Travel.self, inMemory: true)
 }
 */

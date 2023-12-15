@@ -18,11 +18,18 @@ class Travel: Identifiable {
     var dates: [Date]?
     
     
-    var notes: [DataNote] = []
+    
+    var storedImages : [Data] = []
+    var additionalText: String = ""
+
     
     
-    init(name: String ){
+   
+    
+    
+    init(name: String){
         self.name = name
+        
     }
     
 }
