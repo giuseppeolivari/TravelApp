@@ -33,7 +33,7 @@ struct NoteList: View {
                     .cornerRadius(20)
                     .shadow(radius: 10)
             } else {
-                Image("Header")
+                Image("mappa")
                     .resizable()
                     .scaledToFill()
                     .frame(maxWidth: .infinity, maxHeight: 180)
