@@ -31,17 +31,18 @@ struct MainPage: View {
                             ZStack {
                                 Image("mappa")
                                     .resizable()
+                                    .aspectRatio(contentMode: .fit)
                                     .cornerRadius(30)
                                     .frame(width: 350, height: 200)
                                     .shadow(radius: 10)
-                                    .opacity(0.8)
+                                    .opacity(0.7)
                                     .overlay(
                                         Image(systemName: "plus.circle")
                                             .resizable()
                                             .frame(width: 40, height: 40)
                                             .tint(.black)
                                             .padding([.top, .leading], 140)
-                                            .padding(.leading, 160)
+                                            .padding(.leading, 140)
                                     )
                             }
                         }).fullScreenCover(isPresented: $isPresented) {
@@ -55,8 +56,10 @@ struct MainPage: View {
                                        let uiImage = UIImage(data: imageData) {
                                         Image(uiImage: uiImage)
                                             .resizable()
-                                            .scaledToFill()
+                                            //.scaledToFill()
                                             .frame(width: 350, height: 200)
+                                            .aspectRatio(contentMode: .fit)
+                                            .scaledToFit()
                                             .clipped()
                                             .cornerRadius(30)
                                             .shadow(radius: 10)
@@ -77,8 +80,11 @@ struct MainPage: View {
                                 }
                             }
                         }.onDelete(perform: deleteItems)
-                    }
-                    .navigationTitle("TravelApp")
+                }
+                .listRowSeparator(.hidden)
+                .listStyle(.plain)
+                
+                .navigationTitle("TravelApp")
                 
         }
     }
