@@ -49,13 +49,13 @@ struct NoteList: View {
                         VStack(alignment: .leading, spacing: 8) {
                             Text(" \(formattedDate(date))")
                                 .font(.headline)
-                                .foregroundColor(.primary)
+                                //.foregroundColor(.primary)
                             Text("Additional information or details for \(formattedDate(date))")
                                 .font(.subheadline)
-                                .foregroundColor(.secondary)
+                                //.foregroundColor(.secondary)
                         }
                         .padding(10)
-                        .background(Color.white)
+                        //.background(Color.white)
                         .cornerRadius(10)
                         .shadow(color: Color.gray.opacity(0.4), radius: 4, x: 0, y: 2)
                     }
