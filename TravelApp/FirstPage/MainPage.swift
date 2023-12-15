@@ -88,7 +88,7 @@ struct MainPage: View {
                 .listStyle(.inset)
                 
                 
-                .navigationTitle("TravelApp")
+                .navigationTitle("My Travels")
                 
         }
     }
