@@ -8,27 +8,24 @@
 import SwiftUI
 import UIKit
 import SwiftData
+import SwiftUI
+import UIKit
+import SwiftData
 
 struct MainPage: View {
-    let data: [String] = []
-    @State var image1 = "mappa"
-    //@State var bool : Bool = true
-    
-    @State var isPresented : Bool = false
-
+    @State var isPresented: Bool = false
     @Environment(\.modelContext) private var modelContext
-    
     @Query private var viaggio: [Travel]
-    
-    
-    var body: some View{
-        
-        NavigationStack{
-            ScrollView{
+
+    var body: some View {
+        NavigationStack {
+            ScrollView {
                 LazyVGrid(columns: [GridItem(.flexible(), spacing: 10)], content: {
-                    
-                    
-                    Button(action: {withAnimation {isPresented.toggle()}}, label: {
+                    Button(action: {
+                        withAnimation {
+                            isPresented.toggle()
+                        }
+                    }, label: {
                         ZStack {
                             Image("mappa")
                                 .resizable()
@@ -38,25 +35,20 @@ struct MainPage: View {
                                 .overlay(
                                     Image(systemName: "plus.circle")
                                         .resizable()
-                                        //.opacity(0.8)
                                         .frame(width: 40, height: 40)
                                         .tint(.black)
-                                        .padding([.top, .leading],140)
-                                        .padding(.leading,160)
-                                )                        }
+                                        .padding([.top, .leading], 140)
+                                        .padding(.leading, 160)
+                                )
+                        }
                     }).fullScreenCover(isPresented: $isPresented) {
-                        
                         NewTravel(isPresented: $isPresented)
-                        //non mapview ma NewTravel
-                            
                     }
-                    
-                    
-                    
-                    ForEach(viaggio){ peppe in
-                        NavigationLink(destination: NewTravel(isPresented: $isPresented), label:{
-                            ZStack{
-                                if let imageData = peppe.photo ,
+
+                    ForEach(viaggio) { peppe in
+                        NavigationLink(destination: NoteList(travel: peppe)) {
+                            ZStack {
+                                if let imageData = peppe.photo,
                                    let uiImage = UIImage(data: imageData) {
                                     Image(uiImage: uiImage)
                                         .resizable()
@@ -71,58 +63,27 @@ struct MainPage: View {
                                         .resizable()
                                         .cornerRadius(30)
                                         .frame(width: 350, height: 200)
-                                        //.opacity(0.8)
                                 }
-                                /*
-                                Image("mappa")
-                                    .resizable()
-                                    .cornerRadius(30)
-                                    .frame(width: 350, height: 200)
-                                    //.opacity(0.8)
-                                    */
-                                
+
                                 Text(peppe.name)
                                     .font(.largeTitle)
-                                    .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                                    .fontWeight(.bold)
                                     .tint(.black)
-                                    .background(.white.opacity(0.5))
-                                    .padding([.bottom,.trailing],130)
-                                    .padding(.trailing,90)
-                            }})
-                        
+                                    .background(Color.white.opacity(0.5))
+                                    .padding([.bottom, .trailing], 130)
+                                    .padding(.trailing, 90)
+                            }
+                        }
                     }
-                    
-                }).navigationTitle("TravelApp")
-                        
-                        
-                    }
-                    
-                }
+                })
+                .navigationTitle("TravelApp")
             }
-            
-    
-   
-    
-    
-    
         }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    }
+}
 
-
-#Preview {
-    NavigationStack{
+struct MainPage_Previews: PreviewProvider {
+    static var previews: some View {
         MainPage()
     }
 }

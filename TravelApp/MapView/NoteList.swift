@@ -11,26 +11,18 @@
 // NoteList.swift
 import SwiftUI
 import SwiftData
-/*
+
 struct NoteList: View {
-    let numberOfDays: Int
-    let selectedDates: [Date]
     let travel: Travel
-    let selectedImageData: Data?
- 
     @Environment(\.modelContext) private var modelContext
- 
-    //@Query
 
     var body: some View {
         VStack {
-            HStack {
-                Text(travel.name)
-                    .font(.title)
-                    .fontWeight(.bold)
-            }
+            Text(travel.name)
+                .font(.title)
+                .fontWeight(.bold)
 
-            if let imageData = selectedImageData,
+            if let imageData = travel.photo,
                let uiImage = UIImage(data: imageData) {
                 Image(uiImage: uiImage)
                     .resizable()
@@ -52,7 +44,7 @@ struct NoteList: View {
             }
 
             List {
-                ForEach(selectedDates, id: \.self) { date in
+                ForEach(travel.dates ?? [], id: \.self) { date in
                     NavigationLink(destination: AddNoteView(selectedDate: formattedDate(date))) {
                         VStack(alignment: .leading, spacing: 8) {
                             Text(" \(formattedDate(date))")
@@ -84,10 +76,10 @@ struct NoteList: View {
 
 struct NoteList_Previews: PreviewProvider {
     static var previews: some View {
-        NoteList(numberOfDays: 5, selectedDates: [Date(), Date(), Date(), Date(), Date()], travelName: "Sample Travel", selectedImageData: nil)
+        NoteList(travel: Travel(name: "Sample Travel"))
     }
 }
-*/
+
 //ALI YOU ARE BEAUTIFUL
 
 
