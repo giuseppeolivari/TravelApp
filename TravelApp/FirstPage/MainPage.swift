@@ -19,65 +19,67 @@ struct MainPage: View {
 
     var body: some View {
         NavigationStack {
-            ScrollView {
-                LazyVGrid(columns: [GridItem(.flexible(), spacing: 10)], content: {
-                    Button(action: {
-                        withAnimation {
-                            isPresented.toggle()
-                        }
-                    }, label: {
-                        ZStack {
-                            Image("mappa")
-                                .resizable()
-                                .cornerRadius(30)
-                                .frame(width: 350, height: 200)
-                                .shadow(radius: 10)
-                                .opacity(0.8)
-                                .overlay(
-                                    Image(systemName: "plus.circle")
-                                        .resizable()
-                                        .frame(width: 40, height: 40)
-                                        .tint(.black)
-                                        .padding([.top, .leading], 140)
-                                        .padding(.leading, 160)
-                                )
-                        }
-                    }).fullScreenCover(isPresented: $isPresented) {
-                        NewTravel(isPresented: $isPresented)
-                    }
-
-                    ForEach(viaggio) { peppe in
-                        NavigationLink(destination: NoteList(travel: peppe)) {
-                            ZStack {
-                                if let imageData = peppe.photo,
-                                   let uiImage = UIImage(data: imageData) {
-                                    Image(uiImage: uiImage)
-                                        .resizable()
-                                        .scaledToFill()
-                                        .frame(width: 350, height: 200)
-                                        .clipped()
-                                        .cornerRadius(30)
-                                        .shadow(radius: 10)
-                                } else {
-                                    Image("mappa")
-                                        .resizable()
-                                        .cornerRadius(30)
-                                        .frame(width: 350, height: 200)
-                                }
-
-                                Text(peppe.name)
-                                    .font(.largeTitle)
-                                    .fontWeight(.bold)
-                                    .tint(.black)
-                                    .background(Color.white.opacity(0.5))
-                                    .padding([.bottom, .trailing], 130)
-                                    .padding(.trailing, 90)
+            
+                
+                List{
+                    
+                        Button(action: {
+                            withAnimation {
+                                isPresented.toggle()
                             }
+                        }, label: {
+                            ZStack {
+                                Image("mappa")
+                                    .resizable()
+                                    .cornerRadius(30)
+                                    .frame(width: 350, height: 200)
+                                    .shadow(radius: 10)
+                                    .opacity(0.8)
+                                    .overlay(
+                                        Image(systemName: "plus.circle")
+                                            .resizable()
+                                            .frame(width: 40, height: 40)
+                                            .tint(.black)
+                                            .padding([.top, .leading], 140)
+                                            .padding(.leading, 160)
+                                    )
+                            }
+                        }).fullScreenCover(isPresented: $isPresented) {
+                            NewTravel(isPresented: $isPresented)
                         }
-                    }.onDelete(perform: deleteItems)
-                })
-                .navigationTitle("TravelApp")
-            }
+                        
+                        ForEach(viaggio) { peppe in
+                            NavigationLink(destination: NoteList(travel: peppe)) {
+                                ZStack {
+                                    if let imageData = peppe.photo,
+                                       let uiImage = UIImage(data: imageData) {
+                                        Image(uiImage: uiImage)
+                                            .resizable()
+                                            .scaledToFill()
+                                            .frame(width: 350, height: 200)
+                                            .clipped()
+                                            .cornerRadius(30)
+                                            .shadow(radius: 10)
+                                    } else {
+                                        Image("mappa")
+                                            .resizable()
+                                            .cornerRadius(30)
+                                            .frame(width: 350, height: 200)
+                                    }
+                                    
+                                    Text(peppe.name)
+                                        .font(.largeTitle)
+                                        .fontWeight(.bold)
+                                        .tint(.black)
+                                        .background(Color.white.opacity(0.5))
+                                        .padding([.bottom, .trailing], 130)
+                                        .padding(.trailing, 90)
+                                }
+                            }
+                        }.onDelete(perform: deleteItems)
+                    }
+                    .navigationTitle("TravelApp")
+                
         }
     }
     
