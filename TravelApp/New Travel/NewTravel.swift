@@ -70,7 +70,7 @@ struct NewTravel: View {
                                 Rectangle()
                                     .foregroundColor(.clear)
                                     .frame(width: 145, height: 95)
-                                    .background(Color.orange)
+                                    .background(Color.gray)
                                     .cornerRadius(20)
                                 VStack {
                                     Text("From")
@@ -91,13 +91,15 @@ struct NewTravel: View {
                             .multilineTextAlignment(.center)
                             .foregroundColor(.black)
                             .frame(alignment: .center)
+                            .colorInvert()
+                            .accessibilityHidden(/*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
                         
                         Button(action: {withAnimation {calendar2.toggle()}}, label: {
                             ZStack {
                                 Rectangle()
                                     .foregroundColor(.clear)
                                     .frame(width: 145, height: 95)
-                                    .background(Color.orange)
+                                    .background(Color.gray)
                                     .cornerRadius(20)
                                 VStack {
                                     Text("Until")
@@ -132,6 +134,7 @@ struct NewTravel: View {
                             .aspectRatio(contentMode: .fit)
                             .clipShape(RoundedRectangle(cornerRadius: 20.0))
                             .shadow(radius: 10)
+                            .accessibilityHidden(/*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
                     }
                     
                     PhotosPicker(selection: $coverPhoto, matching: .images, photoLibrary: .shared()) {
