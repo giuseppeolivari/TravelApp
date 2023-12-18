@@ -14,7 +14,7 @@ struct MainPage: View {
     @State var isPresented: Bool = false
     @Environment(\.modelContext) private var modelContext
     @Query private var viaggio: [Travel]
-
+    
     
     @State private var index = 0
         let titles = ["My Travels", "I miei viaggi", "Mis viajes", "我的旅行", "Meine Reisen", "Gezilerim"]
@@ -39,8 +39,9 @@ struct MainPage: View {
                                     .aspectRatio(contentMode: .fit)
                                     .cornerRadius(30)
                                     .frame(width: 350, height: 200)
+//                                    .padding(.leading,-20)
                                     .shadow(radius: 10)
-                                    .opacity(0.7)
+//                                    .opacity(0.7)
                                     .accessibilityRemoveTraits(.isImage)
                             }
                             
