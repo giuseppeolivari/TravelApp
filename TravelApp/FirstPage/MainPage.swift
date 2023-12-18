@@ -34,7 +34,7 @@ struct MainPage: View {
                             }
                         }, label: {
                             ZStack {
-                                Image("mappa")
+                                Image("mappaplus")
                                     .resizable()
                                     .aspectRatio(contentMode: .fit)
                                     .cornerRadius(30)
