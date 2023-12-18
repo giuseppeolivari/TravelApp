@@ -60,10 +60,14 @@ struct MainPage: View {
                         
                         NavigationLink(destination: NoteList(travel: peppe)) {
                             VStack{
-                                Text(peppe.name + ":")
-                                    .font(.largeTitle)
-                                    .fontWeight(.bold)
-                                
+                                if !peppe.name.isEmpty{
+                                    Text(peppe.name + ":")
+                                        .font(.largeTitle)
+                                        .fontWeight(.bold)
+                                        .frame(maxWidth: .infinity, alignment: .leading)
+//                                     
+                                }
+                                else{}
                                 ZStack {
                                     if let imageData = peppe.photo,
                                        let uiImage = UIImage(data: imageData) {
@@ -96,7 +100,7 @@ struct MainPage: View {
                                         .accessibilityLabel("Tap To View This Travel")
                                     */
                                 }.accessibilityRemoveTraits(.isButton)
-                            }
+                            } //QUA FINISCE LA VSTACK SENN0' ADRIANO BESTEMMIA
                         }.listRowSeparator(.hidden)
                         
                         
