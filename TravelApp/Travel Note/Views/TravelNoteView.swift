@@ -1,6 +1,6 @@
 //
 //  MainView.swift
-//  MyDummyNotes
+//  
 //
 //  Created by 
 //

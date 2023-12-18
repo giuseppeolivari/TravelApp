@@ -1,6 +1,6 @@
 //
 //  AddNoteView.swift
-//  MyDummyNotes
+//  
 //
 //  Created by 
 //

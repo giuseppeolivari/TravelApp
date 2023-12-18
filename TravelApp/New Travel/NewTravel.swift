@@ -36,7 +36,7 @@ struct NewTravel: View {
     
     @Environment(\.modelContext) private var modelContext
     
-    //@Query private var 
+     
     
     
     var body: some View {

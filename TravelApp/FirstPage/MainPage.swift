@@ -15,6 +15,13 @@ struct MainPage: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var viaggio: [Travel]
 
+    
+    @State private var index = 0
+        let titles = ["My Travels", "I miei viaggi", "Mis viajes", "我的旅行", "Meine Reisen", "Gezilerim"]
+    let timer = Timer.publish(every: 4, on: .main, in: .common).autoconnect()
+    
+    
+    
     var body: some View {
         NavigationStack {
             
@@ -34,6 +41,7 @@ struct MainPage: View {
                                     .frame(width: 350, height: 200)
                                     .shadow(radius: 10)
                                     .opacity(0.7)
+                                    .accessibilityRemoveTraits(.isImage)
                                     .overlay(
                                         Image(systemName: "plus.circle")
                                             .resizable()
@@ -41,8 +49,11 @@ struct MainPage: View {
                                             .tint(.black)
                                             .padding([.top, .leading], 140)
                                             .padding(.leading, 140)
+                                            .accessibilityRemoveTraits(.isImage)
                                     )
                             }
+                            
+                            .accessibilityLabel("tap to create a new travel")
                         }).listRowSeparator(.hidden)
                         .fullScreenCover(isPresented: $isPresented) {
                             NewTravel(isPresented: $isPresented)
@@ -88,7 +99,18 @@ struct MainPage: View {
                 .listStyle(.inset)
                 
                 
-                .navigationTitle("My Travels")
+                .navigationTitle(titles[index])
+                .transition(.opacity)
+                //.animation(.easeInOut(duration: 2.0))
+                .transition(.scale)
+                
+                .contentTransition(.opacity)
+                .onReceive(timer) { _ in
+                    withAnimation {
+                        index = (index + 1) % titles.count
+                    }
+                }
+            
                 
         }
     }
