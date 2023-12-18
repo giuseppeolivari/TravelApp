@@ -33,7 +33,7 @@ struct MainPage: View {
                                 isPresented.toggle()
                             }
                         }, label: {
-                            ZStack {
+                            VStack {
                                 Image("mappaplus")
                                     .resizable()
                                     .aspectRatio(contentMode: .fit)
@@ -43,6 +43,7 @@ struct MainPage: View {
                                     .shadow(radius: 10)
 //                                    .opacity(0.7)
                                     .accessibilityRemoveTraits(.isImage)
+                                Spacer()
                             }
                             
                             .accessibilityLabel("tap to create a new travel")
@@ -68,7 +69,7 @@ struct MainPage: View {
 //                                     
                                 }
                                 else{}
-                                ZStack {
+                                
                                     if let imageData = peppe.photo,
                                        let uiImage = UIImage(data: imageData) {
                                         Image(uiImage: uiImage)
@@ -80,6 +81,7 @@ struct MainPage: View {
                                             .cornerRadius(30)
                                             .shadow(radius: 10)
                                             .accessibilityHidden(true)
+                                        Spacer()
                                         
                                     } else {
                                         Image("mappa")
@@ -88,6 +90,7 @@ struct MainPage: View {
                                             .shadow(radius: 10)
                                             .frame(width: 350, height: 200)
                                             .accessibilityRemoveTraits(.isImage)
+                                        Spacer()
                                     }
                                     /*
                                     Text(peppe.name)
@@ -99,8 +102,8 @@ struct MainPage: View {
                                         .padding(.trailing, 90)
                                         .accessibilityLabel("Tap To View This Travel")
                                     */
-                                }.accessibilityRemoveTraits(.isButton)
-                            } //QUA FINISCE LA VSTACK SENN0' ADRIANO BESTEMMIA
+                                
+                            }.accessibilityRemoveTraits(.isButton) //QUA FINISCE LA VSTACK SENN0' ADRIANO BESTEMMIA
                         }.listRowSeparator(.hidden)
                         
                         
