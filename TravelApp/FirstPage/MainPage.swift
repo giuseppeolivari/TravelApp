@@ -75,7 +75,7 @@ struct MainPage: View {
                                         Image(uiImage: uiImage)
                                             .resizable()
                                             .scaledToFill()
-                                            .frame(maxWidth: 350, maxHeight: 200)
+                                            .frame(maxWidth: 330, maxHeight: 180)
                                         //.opacity(0.8)
                                             .clipped()
                                             .cornerRadius(30)
@@ -88,7 +88,7 @@ struct MainPage: View {
                                             .resizable()
                                             .cornerRadius(30)
                                             .shadow(radius: 10)
-                                            .frame(width: 350, height: 200)
+                                            .frame(width: 330, height: 180)
                                             .accessibilityRemoveTraits(.isImage)
                                         Spacer()
                                     }
@@ -103,7 +103,7 @@ struct MainPage: View {
                                         .accessibilityLabel("Tap To View This Travel")
                                     */
                                 
-                            }.accessibilityRemoveTraits(.isButton) //QUA FINISCE LA VSTACK SENN0' ADRIANO BESTEMMIA
+                            }.accessibilityRemoveTraits(.isButton)
                         }.listRowSeparator(.hidden)
                         
                         
