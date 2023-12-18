@@ -42,15 +42,6 @@ struct MainPage: View {
                                     .shadow(radius: 10)
                                     .opacity(0.7)
                                     .accessibilityRemoveTraits(.isImage)
-                                    .overlay(
-                                        Image(systemName: "plus.circle")
-                                            .resizable()
-                                            .frame(width: 40, height: 40)
-                                            .tint(.black)
-                                            .padding([.top, .leading], 140)
-                                            .padding(.leading, 140)
-                                            .accessibilityRemoveTraits(.isImage)
-                                    )
                             }
                             
                             .accessibilityLabel("tap to create a new travel")
