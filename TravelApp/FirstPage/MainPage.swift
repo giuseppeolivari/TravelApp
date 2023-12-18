@@ -46,6 +46,7 @@ struct MainPage: View {
                             
                             .accessibilityLabel("tap to create a new travel")
                         }).listRowSeparator(.hidden)
+                        .accessibilityRemoveTraits(.isButton)
                         .fullScreenCover(isPresented: $isPresented) {
                             NewTravel(isPresented: $isPresented)
                         }
@@ -68,11 +69,14 @@ struct MainPage: View {
                                                 .clipped()
                                                 .cornerRadius(30)
                                                 .shadow(radius: 10)
+                                                .accessibilityHidden(true)
+                                                
                                         } else {
                                             Image("mappa")
                                                 .resizable()
                                                 .cornerRadius(30)
                                                 .frame(width: 350, height: 200)
+                                                .accessibilityRemoveTraits(.isImage)
                                         }
                                         
                                         Text(peppe.name)
@@ -82,9 +86,12 @@ struct MainPage: View {
                                             .background(Color.white.opacity(0.5))
                                             .padding([.bottom, .trailing], 130)
                                             .padding(.trailing, 90)
-                                    }
+                                            .accessibilityLabel("Tap To View This Travel")
+                                        
+                                    }.accessibilityRemoveTraits(.isButton)
                                 }}.listRowSeparator(.hidden)
                         }.onDelete(perform: deleteItems)
+                        .accessibilityHint("Swipe On The left to delete this travel")
                 }
                 .listRowSeparator(.hidden)
                 .listStyle(.inset)

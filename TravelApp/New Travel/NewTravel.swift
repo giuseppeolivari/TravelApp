@@ -76,12 +76,14 @@ struct NewTravel: View {
                                     Text("From")
                                         .fontWeight(.semibold)
                                         .accentColor(.black)
+                                        .accessibilityLabel("Tap This button to set the date of the begging of the travel")
                                     
                                     Image(systemName: "calendar")
                                         .font(Font.custom("SF Pro", size: 45))
                                         .multilineTextAlignment(.center)
                                         .foregroundColor(.black)
                                         .frame(alignment: .center)
+                                        .accessibilityHidden(true)
                                 }
                             }
                         })
@@ -92,7 +94,7 @@ struct NewTravel: View {
                             .foregroundColor(.black)
                             .frame(alignment: .center)
                             .colorInvert()
-                            .accessibilityHidden(/*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
+                            .accessibilityHidden(true)
                         
                         Button(action: {withAnimation {calendar2.toggle()}}, label: {
                             ZStack {
@@ -105,12 +107,14 @@ struct NewTravel: View {
                                     Text("Until")
                                         .fontWeight(.semibold)
                                         .accentColor(.black)
+                                        .accessibilityLabel("Tap This button to set the date of the end of the travel")
                                     
                                     Image(systemName: "calendar")
                                         .font(Font.custom("SF Pro", size: 45))
                                         .multilineTextAlignment(.center)
                                         .foregroundColor(.black)
                                         .frame(alignment: .center)
+                                        .accessibilityHidden(true)
                                 }
                             }
                         })
