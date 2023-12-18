@@ -52,50 +52,64 @@ struct MainPage: View {
                             NewTravel(isPresented: $isPresented)
                         }
                         
-                        ForEach(viaggio) { peppe in
-                            NavigationLink(destination: NoteList(travel: peppe)) {
-                                VStack{
-                                    Text(peppe.name + ":")
+                    ForEach(viaggio) { peppe in
+                        
+                        
+                        
+                        
+                        
+                        NavigationLink(destination: NoteList(travel: peppe)) {
+                            VStack{
+                                Text(peppe.name + ":")
+                                    .font(.largeTitle)
+                                    .fontWeight(.bold)
+                                
+                                ZStack {
+                                    if let imageData = peppe.photo,
+                                       let uiImage = UIImage(data: imageData) {
+                                        Image(uiImage: uiImage)
+                                            .resizable()
+                                            .scaledToFill()
+                                            .frame(maxWidth: 350, maxHeight: 200)
+                                        //.opacity(0.8)
+                                            .clipped()
+                                            .cornerRadius(30)
+                                            .shadow(radius: 10)
+                                            .accessibilityHidden(true)
+                                        
+                                    } else {
+                                        Image("mappa")
+                                            .resizable()
+                                            .cornerRadius(30)
+                                            .shadow(radius: 10)
+                                            .frame(width: 350, height: 200)
+                                            .accessibilityRemoveTraits(.isImage)
+                                    }
+                                    /*
+                                    Text(peppe.name)
                                         .font(.largeTitle)
                                         .fontWeight(.bold)
-                                    
-                                    ZStack {
-                                        if let imageData = peppe.photo,
-                                           let uiImage = UIImage(data: imageData) {
-                                            Image(uiImage: uiImage)
-                                                .resizable()
-                                                .scaledToFill()
-                                                .frame(maxWidth: 350, maxHeight: 200)
-                                            //.opacity(0.8)
-                                                .clipped()
-                                                .cornerRadius(30)
-                                                .shadow(radius: 10)
-                                                .accessibilityHidden(true)
-                                                
-                                        } else {
-                                            Image("mappa")
-                                                .resizable()
-                                                .cornerRadius(30)
-                                                .frame(width: 350, height: 200)
-                                                .accessibilityRemoveTraits(.isImage)
-                                        }
-                                        
-                                        Text(peppe.name)
-                                            .font(.largeTitle)
-                                            .fontWeight(.bold)
-                                            .tint(.black)
-                                            .background(Color.white.opacity(0.5))
-                                            .padding([.bottom, .trailing], 130)
-                                            .padding(.trailing, 90)
-                                            .accessibilityLabel("Tap To View This Travel")
-                                        
-                                    }.accessibilityRemoveTraits(.isButton)
-                                }}.listRowSeparator(.hidden)
-                        }.onDelete(perform: deleteItems)
-                        .accessibilityHint("Swipe On The left to delete this travel")
+                                        .tint(.black)
+                                        .background(Color.white.opacity(0.5))
+                                        .padding([.bottom, .trailing], 130)
+                                        .padding(.trailing, 90)
+                                        .accessibilityLabel("Tap To View This Travel")
+                                    */
+                                }.accessibilityRemoveTraits(.isButton)
+                            }
+                        }.listRowSeparator(.hidden)
+                        
+                        
+                    }.onDelete(perform: deleteItems)
+                            .accessibilityHint("Swipe On The left to delete this travel")
+                        
+                    
+                            
                 }
                 .listRowSeparator(.hidden)
                 .listStyle(.inset)
+                .buttonStyle(PlainButtonStyle())
+                
                 
                 
                 .navigationTitle(titles[index])
