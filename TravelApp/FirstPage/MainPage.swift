@@ -15,11 +15,11 @@ struct MainPage: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var viaggio: [Travel]
     
-    
+    /*
     @State private var index = 0
         let titles = ["My Travels", "I miei viaggi", "Mis viajes", "我的旅行", "Meine Reisen", "Gezilerim"]
     let timer = Timer.publish(every: 4, on: .main, in: .common).autoconnect()
-    
+    */
     
     
     var body: some View {
@@ -154,15 +154,6 @@ struct MainPage: View {
 
 
 
-
-/*
-struct MainPage_Previews: PreviewProvider {
-    static var previews: some View {
-        MainPage()
-    }
-}
-*/
- 
  
  
 /*
@@ -182,7 +173,7 @@ struct MainPage_Previews: PreviewProvider {
 //                                            .frame(width: 60, height: 60)
 //                                            .tint(.black)
  
- 2.
+ 
  
  
  
