@@ -34,6 +34,7 @@ struct MainPage: View {
                             }
                         }, label: {
                             VStack {
+                                
                                 Image("mappaplus")
                                     .resizable()
                                     .aspectRatio(contentMode: .fit)
