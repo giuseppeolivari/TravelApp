@@ -27,10 +27,14 @@ struct AddNoteView: View {
                     .font(.body)
                     .focused($isFocused)
                     .onAppear() {
-                            additionalText = note.additionalText
+                        additionalText = note.additionalText
                     }
+            }
+                   // .frame(maxWidth: .infinity, maxHeight: 90)
                 
-                VStack {
+                VStack{
+                
+                
                     TabView {
                         
                        if let imageData = newPhotoData,
@@ -56,7 +60,7 @@ struct AddNoteView: View {
                                 Image(uiImage: uiImage)
                                     .resizable()
                                     .scaledToFill()
-                                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                                    //.frame(maxWidth: .infinity, maxHeight: .infinity)
                                     .accessibilityRemoveTraits(.isImage)
                                     .contextMenu() {
                                         Button(role: .destructive) {
@@ -76,7 +80,7 @@ struct AddNoteView: View {
                     .containerShape(Rectangle())
                     .cornerRadius(15)
                     .padding(10)
-                }
+                
             }
         }
         .navigationTitle(selectedDate ?? "Note") // Show selectedDate in navigationTitle

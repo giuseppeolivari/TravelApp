@@ -212,7 +212,7 @@ struct NewTravel: View {
             let start = calendar.startOfDay(for: startDate)
             let end = calendar.startOfDay(for: endDate)
             let components = calendar.dateComponents([.day], from: start, to: end)
-            return components.day ?? 0
+            return (components.day ?? 0) + 1
         }
         // altrimenti ritorna end date = startdate
         else {

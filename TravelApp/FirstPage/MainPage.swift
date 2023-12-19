@@ -116,9 +116,9 @@ struct MainPage: View {
                 .listRowSeparator(.hidden)
                 .listStyle(.inset)
                 .buttonStyle(PlainButtonStyle())
+                .navigationTitle("My Travels")
                 
-                
-                
+                /*
                 .navigationTitle(titles[index])
                 .transition(.opacity)
                 //.animation(.easeInOut(duration: 2.0))
@@ -130,7 +130,7 @@ struct MainPage: View {
                         index = (index + 1) % titles.count
                     }
                 }
-            
+            */
                 
         }
     }
