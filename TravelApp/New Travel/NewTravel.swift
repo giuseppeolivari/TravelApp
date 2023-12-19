@@ -91,9 +91,9 @@ struct NewTravel: View {
                         Image(systemName: "arrow.forward")
                             .font(Font.custom("SF Pro", size: 45))
                             .multilineTextAlignment(.center)
-                            .foregroundColor(.black)
+                            //.foregroundColor(.black)
                             .frame(alignment: .center)
-                            .colorInvert()
+                            .foregroundColor(.colorMap)
                             .accessibilityHidden(true)
                         
                         Button(action: {withAnimation {calendar2.toggle()}}, label: {
